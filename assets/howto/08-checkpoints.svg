@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px}
+    .k{font-family:'Cascadia Code',Consolas,monospace;font-size:13px}
+    .a{opacity:0;animation:show 11s infinite}
+    .s1{animation-delay:.2s}.s2{animation-delay:1s}.s3{animation-delay:1.8s}.bad{animation-delay:2.6s}
+    .rw{animation-delay:4.2s}.alt{animation-delay:6s}.ok{animation-delay:7.2s}
+    @keyframes show{0%{opacity:0}3%,86%{opacity:1}93%,100%{opacity:0}}
+    .fade{animation:fade 11s infinite}
+    @keyframes fade{0%,40%{opacity:1}48%,86%{opacity:.25}93%,100%{opacity:0}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">每次修改前自动存档 —— 改坏了，按两下 Esc 回去</text>
+  <line x1="60" y1="150" x2="560" y2="150" stroke="#6f625a" stroke-width="3"/>
+  <g class="a s1"><circle cx="80" cy="150" r="12" fill="#D97757"/><text x="80" y="186" text-anchor="middle" fill="#F5EDE6">存档 1</text><text x="80" y="206" text-anchor="middle" fill="#a89a8f" font-size="12">初始</text></g>
+  <g class="a s2"><circle cx="230" cy="150" r="12" fill="#D97757"/><text x="230" y="186" text-anchor="middle" fill="#F5EDE6">存档 2</text><text x="230" y="206" text-anchor="middle" fill="#a89a8f" font-size="12">加了缓存</text></g>
+  <g class="a s3"><g class="fade"><circle cx="380" cy="150" r="12" fill="#D97757"/><text x="380" y="186" text-anchor="middle" fill="#F5EDE6">存档 3</text></g></g>
+  <g class="a bad"><g class="fade"><circle cx="530" cy="150" r="14" fill="#ff6b6b"/><text x="530" y="186" text-anchor="middle" fill="#ff8c8c">改坏了</text><text x="530" y="206" text-anchor="middle" fill="#a89a8f" font-size="12">测试全红</text></g></g>
+  <g class="a rw">
+    <path d="M520 118 C 440 70, 320 70, 240 126" fill="none" stroke="#F4B183" stroke-width="3" stroke-dasharray="7 6"/>
+    <path d="M240 126 l2 -16 l12 10 z" fill="#F4B183"/>
+    <text x="380" y="72" text-anchor="middle" fill="#F4B183">/rewind  或  <tspan class="k">Esc Esc</tspan></text>
+  </g>
+  <g class="a alt">
+    <path d="M230 150 C 300 250, 420 260, 560 260" fill="none" stroke="#9BE39B" stroke-width="3"/>
+    <circle cx="560" cy="260" r="12" fill="#9BE39B"/><text x="590" y="265" fill="#9BE39B">换一种方案 ✓</text>
+  </g>
+  <g class="a ok">
+    <rect x="660" y="96" width="268" height="150" rx="12" fill="#2b2420"/>
+    <text x="680" y="124" fill="#E8A87C" font-weight="700">回退时可以选择</text>
+    <text x="680" y="152" fill="#F5EDE6">代码 + 对话一起回退</text>
+    <text x="680" y="178" fill="#F5EDE6">只回退对话 / 只回退代码</text>
+    <text x="680" y="204" fill="#F5EDE6">从这里开始压缩总结</text>
+    <text x="680" y="230" fill="#a89a8f" font-size="12">长期历史仍交给 Git</text>
+  </g>
+</svg>

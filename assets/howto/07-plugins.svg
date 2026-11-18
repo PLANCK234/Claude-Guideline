@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px}
+    .m{font-family:'Cascadia Code',Consolas,monospace;font-size:13px}
+    .c{animation:in 10s infinite}
+    .c2{animation-delay:.3s}.c3{animation-delay:.6s}.c4{animation-delay:.9s}.c5{animation-delay:1.2s}
+    @keyframes in{0%,8%{transform:translate(0,0);opacity:1}30%,100%{transform:translate(300px,var(--dy));opacity:0}}
+    .box{animation:box 10s infinite}
+    @keyframes box{0%,28%{stroke:#6f625a}34%,90%{stroke:#D97757}100%{stroke:#6f625a}}
+    .a{opacity:0;animation:show 10s infinite}.cmd{animation-delay:4s}.u1{animation-delay:5.6s}.u2{animation-delay:6.1s}.u3{animation-delay:6.6s}
+    @keyframes show{0%{opacity:0}3%,85%{opacity:1}92%,100%{opacity:0}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">Plugin：把零散能力打包，团队一条命令装齐</text>
+  <g class="m">
+    <g class="c" style="--dy:110px"><rect x="40" y="70" width="160" height="34" rx="8" fill="#2b2420" stroke="#E8A87C"/><text x="56" y="92" fill="#F5EDE6">commands/</text></g>
+    <g class="c c2" style="--dy:60px"><rect x="40" y="116" width="160" height="34" rx="8" fill="#2b2420" stroke="#E8A87C"/><text x="56" y="138" fill="#F5EDE6">skills/</text></g>
+    <g class="c c3" style="--dy:10px"><rect x="40" y="162" width="160" height="34" rx="8" fill="#2b2420" stroke="#E8A87C"/><text x="56" y="184" fill="#F5EDE6">agents/</text></g>
+    <g class="c c4" style="--dy:-40px"><rect x="40" y="208" width="160" height="34" rx="8" fill="#2b2420" stroke="#E8A87C"/><text x="56" y="230" fill="#F5EDE6">hooks/</text></g>
+    <g class="c c5" style="--dy:-90px"><rect x="40" y="254" width="160" height="34" rx="8" fill="#2b2420" stroke="#E8A87C"/><text x="56" y="276" fill="#F5EDE6">.mcp.json</text></g>
+  </g>
+  <rect class="box" x="330" y="120" width="210" height="130" rx="14" fill="#3a2a22" stroke-width="3"/>
+  <text x="435" y="176" text-anchor="middle" fill="#F5EDE6" font-weight="700" font-size="16">pr-review</text>
+  <text class="m" x="435" y="202" text-anchor="middle" fill="#a89a8f">plugin.json · v1.0.0</text>
+  <g class="a cmd"><rect x="580" y="166" width="230" height="38" rx="8" fill="#2b2420" stroke="#D97757"/>
+    <text class="m" x="596" y="190" fill="#F5EDE6"><tspan fill="#D97757">&gt;</tspan> /plugin install pr-review</text></g>
+  <g text-anchor="middle">
+    <g class="a u1"><circle cx="880" cy="110" r="22" fill="#2b2420" stroke="#9BE39B"/><text x="880" y="115" fill="#9BE39B">A</text></g>
+    <g class="a u2"><circle cx="880" cy="185" r="22" fill="#2b2420" stroke="#9BE39B"/><text x="880" y="190" fill="#9BE39B">B</text></g>
+    <g class="a u3"><circle cx="880" cy="260" r="22" fill="#2b2420" stroke="#9BE39B"/><text x="880" y="265" fill="#9BE39B">C</text></g>
+  </g>
+  <text class="a u3" x="660" y="310" fill="#9BE39B" font-size="13">每位成员拿到完全一致的工作流</text>
+</svg>

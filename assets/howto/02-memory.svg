@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:15px}
+    .m{font-family:'Cascadia Code',Consolas,monospace;font-size:13px}
+    .L{opacity:0;animation:fly 9s infinite}
+    .l1{animation-delay:.2s}.l2{animation-delay:1.2s}.l3{animation-delay:2.2s}.l4{animation-delay:3.2s}
+    .glow{animation:glow 9s infinite}
+    .note{opacity:0;animation:show 9s infinite;animation-delay:5s}
+    @keyframes fly{0%{opacity:0;transform:translateX(-40px)}6%{opacity:1;transform:translateX(0)}88%{opacity:1}95%,100%{opacity:0}}
+    @keyframes glow{0%,45%{stroke-opacity:.25}55%,88%{stroke-opacity:1}100%{stroke-opacity:.25}}
+    @keyframes show{0%{opacity:0}4%,82%{opacity:1}92%,100%{opacity:0}}
+    .flow{stroke-dasharray:6 6;animation:f 1s linear infinite}@keyframes f{to{stroke-dashoffset:-12}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">每次启动，多层 CLAUDE.md 自动拼接进上下文</text>
+  <g class="L l1"><rect x="32" y="66" width="400" height="50" rx="10" fill="#2b2420" stroke="#6f625a"/>
+    <text x="50" y="96" fill="#F5EDE6">组织策略</text><text class="m" x="190" y="96" fill="#a89a8f">Managed policy</text></g>
+  <g class="L l2"><rect x="32" y="124" width="400" height="50" rx="10" fill="#2b2420" stroke="#a89a8f"/>
+    <text x="50" y="154" fill="#F5EDE6">个人偏好</text><text class="m" x="190" y="154" fill="#a89a8f">~/.claude/CLAUDE.md</text></g>
+  <g class="L l3"><rect x="32" y="182" width="400" height="50" rx="10" fill="#3a2a22" stroke="#D97757"/>
+    <text x="50" y="212" fill="#F5EDE6">项目规则（团队共享）</text><text class="m" x="250" y="212" fill="#E8A87C">./CLAUDE.md</text></g>
+  <g class="L l4"><rect x="32" y="240" width="400" height="50" rx="10" fill="#2b2420" stroke="#a89a8f"/>
+    <text x="50" y="270" fill="#F5EDE6">本地私有（不提交）</text><text class="m" x="250" y="270" fill="#a89a8f">CLAUDE.local.md</text></g>
+  <path class="flow" d="M440 178 H540" stroke="#D97757" stroke-width="3"/>
+  <rect class="glow" x="548" y="66" width="380" height="224" rx="12" fill="#2b2420" stroke="#D97757" stroke-width="2"/>
+  <text x="570" y="100" fill="#E8A87C" font-weight="700">Claude 的上下文</text>
+  <text class="note" x="570" y="140" fill="#F5EDE6">✓ 用 pnpm，不用 npm</text>
+  <text class="note" x="570" y="172" fill="#F5EDE6">✓ 提交前先跑测试</text>
+  <text class="note" x="570" y="204" fill="#F5EDE6">✓ 回复使用中文</text>
+  <text class="note" x="570" y="236" fill="#F5EDE6">✓ 不要修改 legacy/ 目录</text>
+  <text class="note" x="570" y="272" fill="#a89a8f" font-size="13">多层是“拼接”，不是“覆盖”</text>
+</svg>

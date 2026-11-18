@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="440" viewBox="0 0 1100 440">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .flow{stroke-dasharray:8 7;animation:f 1s linear infinite}
+      @keyframes f{to{stroke-dashoffset:-15}}
+      .ok{animation:ok 4s ease-in-out infinite}
+      @keyframes ok{0%,40%{opacity:.35}55%,100%{opacity:1}}
+    </style>
+  </defs>
+  <rect width="1100" height="440" rx="20" fill="#1e1a17"/>
+  <text x="44" y="52" font-size="26" font-weight="700" fill="#F5EDE6">一张图看懂“泄露”</text>
+  <text x="44" y="84" font-size="17" fill="#a89a8f">只要有一条流量绕过代理，网站就能看到你的真实 IP</text>
+
+  <!-- 你的电脑 -->
+  <rect x="44" y="112" width="230" height="290" rx="16" fill="#2b2420" stroke="#D97757" stroke-width="2"/>
+  <text x="159" y="146" text-anchor="middle" font-size="20" font-weight="700" fill="#F5EDE6">你的电脑</text>
+  <g font-size="17">
+    <rect x="64" y="166" width="190" height="40" rx="8" fill="#1f3a24"/><text x="159" y="192" text-anchor="middle" fill="#9BE39B">浏览器 HTTP</text>
+    <rect x="64" y="226" width="190" height="40" rx="8" fill="#3a1f1f"/><text x="159" y="252" text-anchor="middle" fill="#ff9b9b">WebRTC（UDP）</text>
+    <rect x="64" y="286" width="190" height="40" rx="8" fill="#3a1f1f"/><text x="159" y="312" text-anchor="middle" fill="#ff9b9b">DNS 查询</text>
+    <rect x="64" y="346" width="190" height="40" rx="8" fill="#3a1f1f"/><text x="159" y="372" text-anchor="middle" fill="#ff9b9b">IPv6</text>
+  </g>
+
+  <!-- 代理 -->
+  <rect x="455" y="156" width="190" height="60" rx="14" fill="#D97757"/>
+  <text x="550" y="194" text-anchor="middle" font-size="20" font-weight="700" fill="#fff">代理出口 IP</text>
+
+  <!-- 网站 -->
+  <rect x="826" y="112" width="230" height="290" rx="16" fill="#2b2420" stroke="#a89a8f" stroke-width="2"/>
+  <text x="941" y="146" text-anchor="middle" font-size="20" font-weight="700" fill="#F5EDE6">网站 / 服务</text>
+  <text x="941" y="180" text-anchor="middle" font-size="16" fill="#a89a8f">看到的 IP</text>
+  <text class="ok" x="941" y="214" text-anchor="middle" font-size="17" fill="#9BE39B">✓ 代理 IP</text>
+  <text x="941" y="262" text-anchor="middle" font-size="17" fill="#ff9b9b">✗ 真实 IP</text>
+  <text x="941" y="322" text-anchor="middle" font-size="17" fill="#ff9b9b">✗ 本地运营商 DNS</text>
+  <text x="941" y="382" text-anchor="middle" font-size="17" fill="#ff9b9b">✗ 真实 IPv6</text>
+
+  <!-- 正常路径 -->
+  <path class="flow" d="M254 186 H455" stroke="#9BE39B" stroke-width="3" fill="none"/>
+  <path class="flow" d="M645 186 H826" stroke="#9BE39B" stroke-width="3" fill="none"/>
+  <text x="355" y="176" text-anchor="middle" font-size="15" fill="#9BE39B">经过代理</text>
+
+  <!-- 泄露路径 -->
+  <g stroke="#ff6b6b" stroke-width="3" fill="none">
+    <path class="flow" d="M254 246 C 450 246, 650 256, 826 256"/>
+    <path class="flow" d="M254 306 H826"/>
+    <path class="flow" d="M254 366 C 450 366, 650 376, 826 376"/>
+  </g>
+  <g font-size="15" fill="#ff9b9b" text-anchor="middle">
+    <text x="550" y="240">WebRTC 绕过代理直连</text>
+    <text x="550" y="298">DNS 请求发给本地运营商</text>
+    <text x="550" y="360">IPv6 流量不经过代理</text>
+  </g>
+  <text x="550" y="424" text-anchor="middle" font-size="15" fill="#a89a8f">解决方法见本章第 4、5 节：关闭 WebRTC 泄露、禁用 IPv6，并开启代理客户端的 TUN 模式</text>
+</svg>

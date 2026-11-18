@@ -1,0 +1,2429 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="一份 Claude Code 的中文自学指南：网络准备、终端代理、安装使用与个人经验">
+      
+      
+        <meta name="author" content="ClaudeDIY contributors">
+      
+      
+        <link rel="canonical" href="https://planck234.github.io/Claude-Guideline/howto/QUICK_REFERENCE/">
+      
+      
+        <link rel="prev" href="../CATALOG/">
+      
+      
+        <link rel="next" href="../WHATS-NEW/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>速查卡 - ClaudeDIY · Claude Code 自学指南</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#claude-code-速查卡quick-reference" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="ClaudeDIY · Claude Code 自学指南" class="md-header__button md-logo" aria-label="ClaudeDIY · Claude Code 自学指南" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ClaudeDIY · Claude Code 自学指南
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              速查卡
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PLANCK234/Claude-Guideline" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PLANCK234/Claude-Guideline
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ClaudeDIY · Claude Code 自学指南" class="md-nav__button md-logo" aria-label="ClaudeDIY · Claude Code 自学指南" data-md-component="logo">
+      
+  <img src="../../assets/logo.svg" alt="logo">
+
+    </a>
+    ClaudeDIY · Claude Code 自学指南
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PLANCK234/Claude-Guideline" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    PLANCK234/Claude-Guideline
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    前言
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    准备工作
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    准备工作
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    网络准备与 IP 泄露检测
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-terminal-proxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    终端永久代理配置
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    上手使用
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    上手使用
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-install-and-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装与使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-stop-claude/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    终止所有 Claude 进程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实战
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实战
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-remotion-animation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    用 Claude + Remotion 做动画
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶篇
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    进阶篇
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    总览与来源
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-slash-commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01 · Slash Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02 · Memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03 · Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-subagents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04 · Subagents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05 · MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06 · Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07 · Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-checkpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08 · Checkpoints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-advanced-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09 · 高级功能
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10 · CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LEARNING-ROADMAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    学习路线图
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../claude_concepts_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概念总览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CATALOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    功能总表
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查卡
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    速查卡
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-安装命令速查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 安装命令速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 安装命令速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands快捷命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slash Commands（快捷命令）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory记忆" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory（记忆）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills技能" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills（技能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagents子代理" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagents（子代理）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp外部工具协议" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP（外部工具协议）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks钩子" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks（钩子）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins插件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins（插件）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkpoints检查点" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoints（检查点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-features高级功能" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features（高级功能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-功能速查表" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 功能速查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-哪些标识不能翻" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 哪些标识不能翻
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-常见场景速查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 常见场景速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 常见场景速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#代码审查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码审查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#文档生成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文档生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops运维自动化" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps（运维自动化）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#团队规范" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        团队规范
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#自动化与-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动化与 Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安全试错" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安全试错
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-中国用户特别注意" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🇨🇳 中国用户特别注意
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🇨🇳 中国用户特别注意">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-访问和-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub 访问和 Token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm--npx--uv-使用提醒" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm / npx / uv 使用提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows--wsl-使用提醒" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows / WSL 使用提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#翻译不要碰的地方" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        翻译不要碰的地方
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-常用入口" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 常用入口
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WHATS-NEW/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    新能力速览
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-personal-notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    个人经验
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-安装命令速查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 安装命令速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 安装命令速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slash-commands快捷命令" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slash Commands（快捷命令）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#memory记忆" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory（记忆）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills技能" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skills（技能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subagents子代理" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subagents（子代理）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mcp外部工具协议" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP（外部工具协议）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hooks钩子" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hooks（钩子）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins插件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plugins（插件）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checkpoints检查点" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checkpoints（检查点）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-features高级功能" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Features（高级功能）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-功能速查表" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 功能速查表
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-哪些标识不能翻" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 哪些标识不能翻
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-常见场景速查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 常见场景速查
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 常见场景速查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#代码审查" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码审查
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#文档生成" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文档生成
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devops运维自动化" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps（运维自动化）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#团队规范" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        团队规范
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#自动化与-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        自动化与 Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#安全试错" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安全试错
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-中国用户特别注意" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🇨🇳 中国用户特别注意
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🇨🇳 中国用户特别注意">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-访问和-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub 访问和 Token
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#npm--npx--uv-使用提醒" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        npm / npx / uv 使用提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows--wsl-使用提醒" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows / WSL 使用提醒
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#翻译不要碰的地方" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        翻译不要碰的地方
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-常用入口" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 常用入口
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/PLANCK234/Claude-Guideline/edit/main/docs/howto/QUICK_REFERENCE.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="claude-code-速查卡quick-reference">Claude Code 速查卡（Quick Reference）<a class="headerlink" href="#claude-code-速查卡quick-reference" title="Permanent link">&para;</a></h1>
+<p>这份速查卡适合两种场景：</p>
+<ul>
+<li>你已经知道大概原理，现在只想快速复制命令</li>
+<li>你正在本土化或二次改写仓库，想快速确认哪些路径和标识不能动</li>
+</ul>
+<hr />
+<h2 id="-安装命令速查">🚀 安装命令速查<a class="headerlink" href="#-安装命令速查" title="Permanent link">&para;</a></h2>
+<h3 id="slash-commands快捷命令">Slash Commands（快捷命令）<a class="headerlink" href="#slash-commands快捷命令" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 安装全部示例 slash commands</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp<span class="w"> </span><span class="m">01</span>-slash-commands/*.md<span class="w"> </span>.claude/commands/
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># 安装单个命令</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>cp<span class="w"> </span><span class="m">01</span>-slash-commands/optimize.md<span class="w"> </span>.claude/commands/
+</code></pre></div>
+<h3 id="memory记忆">Memory（记忆）<a class="headerlink" href="#memory记忆" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># 项目级 memory</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>cp<span class="w"> </span><span class="m">02</span>-memory/project-CLAUDE.md<span class="w"> </span>./CLAUDE.md
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># 个人级 memory</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>cp<span class="w"> </span><span class="m">02</span>-memory/personal-CLAUDE.md<span class="w"> </span>~/.claude/CLAUDE.md
+</code></pre></div>
+<h3 id="skills技能">Skills（技能）<a class="headerlink" href="#skills技能" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># 个人 skills</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>cp<span class="w"> </span>-r<span class="w"> </span><span class="m">03</span>-skills/code-review-specialist<span class="w"> </span>~/.claude/skills/
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># 项目 skills</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>cp<span class="w"> </span>-r<span class="w"> </span><span class="m">03</span>-skills/code-review-specialist<span class="w"> </span>.claude/skills/
+</code></pre></div>
+<h3 id="subagents子代理">Subagents（子代理）<a class="headerlink" href="#subagents子代理" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 安装全部 subagents</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>cp<span class="w"> </span><span class="m">04</span>-subagents/*.md<span class="w"> </span>.claude/agents/
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># 安装单个 subagent</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>cp<span class="w"> </span><span class="m">04</span>-subagents/code-reviewer.md<span class="w"> </span>.claude/agents/
+</code></pre></div>
+<h3 id="mcp外部工具协议">MCP（外部工具协议）<a class="headerlink" href="#mcp外部工具协议" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 先准备凭证</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">GITHUB_TOKEN</span><span class="o">=</span><span class="s2">"your_token"</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">DATABASE_URL</span><span class="o">=</span><span class="s2">"postgresql://..."</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># 项目级 MCP 配置</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>cp<span class="w"> </span><span class="m">05</span>-mcp/github-mcp.json<span class="w"> </span>.mcp.json
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--scope<span class="w"> </span>project<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>github<span class="w"> </span>https://api.github.com/mcp
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>claude<span class="w"> </span>mcp<span class="w"> </span>add-json<span class="w"> </span>events-server<span class="w"> </span><span class="s1">'{"type":"stdio","command":"npx","args":["@modelcontextprotocol/server-events"]}'</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># CLI 登录 / 登出 MCP server</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>claude<span class="w"> </span>mcp<span class="w"> </span>login<span class="w"> </span>github
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>claude<span class="w"> </span>mcp<span class="w"> </span>login<span class="w"> </span>github<span class="w"> </span>--no-browser
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>claude<span class="w"> </span>mcp<span class="w"> </span><span class="nb">logout</span><span class="w"> </span>github
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># v2.1.193+ 启动时会提示仍需认证的 MCP server；headersHelper 遇到 HTTP 401 / 403 会自动刷新</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="c1"># 或者写进用户级配置 ~/.claude.json</span>
+</code></pre></div>
+<h3 id="hooks钩子">Hooks（钩子）<a class="headerlink" href="#hooks钩子" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/hooks
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>cp<span class="w"> </span><span class="m">06</span>-hooks/*.sh<span class="w"> </span>~/.claude/hooks/
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/.claude/hooks/*.sh
+</code></pre></div>
+<h3 id="plugins插件">Plugins（插件）<a class="headerlink" href="#plugins插件" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>/plugin<span class="w"> </span>install<span class="w"> </span>pr-review
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/plugin<span class="w"> </span>install<span class="w"> </span>devops-automation
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>/plugin<span class="w"> </span>install<span class="w"> </span>documentation
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>/plugin<span class="w"> </span>list<span class="w"> </span>--enabled
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>/plugin<span class="w"> </span>list<span class="w"> </span>--disabled
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>claude<span class="w"> </span>plugin<span class="w"> </span>init<span class="w"> </span>my-plugin
+</code></pre></div>
+<h3 id="checkpoints检查点">Checkpoints（检查点）<a class="headerlink" href="#checkpoints检查点" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># checkpoints 默认自动创建</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1"># fileCheckpointingEnabled 默认 true；只保留最近 100 个 checkpoints 的文件快照</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># CLAUDE_CODE_DISABLE_FILE_CHECKPOINTING 可关闭文件快照</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># v2.1.191+ 起 /rewind 可以跨过 /clear 回到更早 checkpoint</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>/rewind
+</code></pre></div>
+<h3 id="advanced-features高级功能">Advanced Features（高级功能）<a class="headerlink" href="#advanced-features高级功能" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 进入规划模式</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>/plan<span class="w"> </span>Task<span class="w"> </span>description
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># 把复杂规划交给云端会话起草</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>/ultraplan<span class="w"> </span>Task<span class="w"> </span>description
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># 为新同事生成项目 onboarding guide</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>/team-onboarding
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># 额外用量配置</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>/usage-credits<span class="w">       </span><span class="c1"># `/extra-usage` 仍可作为兼容 alias（别名）</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>/usage<span class="w">               </span><span class="c1"># v2.1.149+ 成本视图会按类别拆分</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>/deep-research<span class="w"> </span>topic<span class="w"> </span><span class="c1"># 深入研究主题；v2.1.218+ 起仅显式调用</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>/code-review<span class="w"> </span>high<span class="w">    </span><span class="c1"># 正确性缺陷审查；v2.1.218+ 起在后台 subagent 中运行</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>/review<span class="w"> </span>&lt;pr&gt;<span class="w">         </span><span class="c1"># 审查 GitHub PR；本地 diff 仍用 /code-review</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>/simplify<span class="w">            </span><span class="c1"># 清理型审查并应用修复，不负责找 bug</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>/doctor<span class="w">              </span><span class="c1"># 诊断安装、配置和 plugin 健康</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>/bug<span class="w"> </span><span class="s2">"描述问题"</span><span class="w">      </span><span class="c1"># v2.1.178+ 必须填写描述</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>/reload-skills<span class="w">       </span><span class="c1"># 重新扫描 skill 目录</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>/workflows<span class="w">           </span><span class="c1"># 查看 dynamic workflows</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a>/cd<span class="w"> </span>../backend<span class="w">       </span><span class="c1"># 切换工作目录并尽量保留 prompt cache</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a>/plugin<span class="w">              </span><span class="c1"># marketplace 浏览界面可用搜索栏过滤 plugin</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>ultracode<span class="w">            </span><span class="c1"># 触发 dynamic workflows 的关键词，裸词 workflow 不再触发</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>/config<span class="w"> </span><span class="nv">thinking</span><span class="o">=</span><span class="nb">false</span><span class="w">  </span><span class="c1"># 直接设置单个配置项</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a>/config<span class="w">                 </span><span class="c1"># Output style 在这里切换；/output-style 已移除</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a>/statusline<span class="w">             </span><span class="c1"># 配置底部状态栏 command</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>!npm<span class="w"> </span><span class="nb">test</span><span class="w">            </span><span class="c1"># v2.1.186+ 起输出会自动发给 Claude 并触发回复</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a>!cat<span class="w"> </span>src/index.ts<span class="w">    </span><span class="c1"># v2.1.193+ 起 ! bash mode 支持路径自动补全</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>claude<span class="w"> </span>auto-mode<span class="w"> </span>reset<span class="w">        </span><span class="c1"># 恢复 Auto Mode 默认配置并请求确认</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a>claude<span class="w"> </span>auto-mode<span class="w"> </span>reset<span class="w"> </span>--yes<span class="w">  </span><span class="c1"># 跳过确认</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a><span class="c1"># CLAUDE_CODE_ENABLE_AUTO_MODE 从 v2.1.207 起仅保留兼容性，不再产生效果</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_DISABLE_MOUSE_CLICKS</span><span class="o">=</span><span class="m">1</span><span class="w">  </span><span class="c1"># 禁用 fullscreen mode 的 click / drag / hover</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="nv">CLAUDE_CODE_SAFE_MODE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>claude<span class="w">          </span><span class="c1"># 禁用自定义项后排查配置问题</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT</span><span class="o">=</span><span class="m">600</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS</span><span class="o">=</span><span class="m">120000</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION</span><span class="o">=</span><span class="m">200</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MAX_SUBAGENTS_PER_SESSION</span><span class="o">=</span><span class="m">200</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MAX_CONCURRENT_SUBAGENTS</span><span class="o">=</span><span class="m">20</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH</span><span class="o">=</span><span class="m">1</span><span class="w">  </span><span class="c1"># v2.1.219+ 设为 1 可禁用嵌套；默认深度 3</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_OTEL_CONTENT_MAX_LENGTH</span><span class="o">=</span><span class="m">61440</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FORCE_HYPERLINK</span><span class="o">=</span><span class="m">0</span>
+<a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_AX_SCREEN_READER</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="nb">export</span><span class="w"> </span><span class="nv">CLAUDE_CODE_RETRY_WATCHDOG</span><span class="o">=</span><span class="m">1</span>
+<a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>
+<a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="c1"># 常见 permission mode</span>
+<a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>manual
+<a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>acceptEdits
+<a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>plan
+<a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>dontAsk<span class="w">  </span><span class="c1"># 未预先批准的工具自动拒绝</span>
+<a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>bypassPermissions
+<a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a>claude<span class="w"> </span>--permission-mode<span class="w"> </span>auto<span class="w">  </span><span class="c1"># 所有动作经过后台 safety classifier；替代已移除的 --enable-auto-mode</span>
+<a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a>claude<span class="w"> </span>--safe-mode
+<a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a>claude<span class="w"> </span>--fallback-model<span class="w"> </span>sonnet
+<a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a>claude<span class="w"> </span>--ax-screen-reader
+<a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a>
+<a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="c1"># session 常用命令</span>
+<a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>/resume<span class="w">                 </span><span class="c1"># 无参数时打开历史 session picker</span>
+<a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a>/rename<span class="w"> </span><span class="s2">"session-name"</span>
+<a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a>/fork<span class="w"> </span>尝试<span class="w"> </span>OAuth<span class="w"> </span>方案<span class="w">   </span><span class="c1"># 复制成独立后台 session，不回传结果</span>
+<a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a>/subtask<span class="w"> </span>检查<span class="w"> </span>flaky<span class="w"> </span>tests<span class="w">  </span><span class="c1"># forked subagent 完成后回传结果</span>
+<a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a>/branch<span class="w"> </span>try-oauth<span class="w">       </span><span class="c1"># 切换到对话副本，原对话保留</span>
+<a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a>claude<span class="w"> </span>-c
+<a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>claude<span class="w"> </span>-r<span class="w"> </span><span class="s2">"session-name"</span>
+<a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a>claude<span class="w"> </span>agents<span class="w"> </span>--json<span class="w">   </span><span class="c1"># 机器可读的 Agent View 列表</span>
+<a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a>claude<span class="w"> </span>-p<span class="w"> </span>--output-format<span class="w"> </span>stream-json<span class="w"> </span>--forward-subagent-text<span class="w"> </span><span class="s2">"query"</span><span class="w">  </span><span class="c1"># 包含深度 2+ 的 subagent 输出</span>
+<a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a>git<span class="w"> </span>worktree<span class="w"> </span>prune<span class="w">     </span><span class="c1"># 清理已解锁且不再使用的 worktree</span>
+<a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a>
+<a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a><span class="c1"># settings.json 常见新增 key（key 名不要翻译）</span>
+<a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="c1"># outputStyle / statusLine / switchModelsOnFlag</span>
+<a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="c1"># wheelScrollAccelerationEnabled</span>
+<a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="c1"># footerLinksRegexes</span>
+<a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="c1"># language</span>
+<a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="c1"># enforceAvailableModels</span>
+<a id="__codelineno-8-74" name="__codelineno-8-74" href="#__codelineno-8-74"></a><span class="c1"># sandbox.filesystem.disabled</span>
+<a id="__codelineno-8-75" name="__codelineno-8-75" href="#__codelineno-8-75"></a><span class="c1"># sandbox.network.strictAllowlist</span>
+<a id="__codelineno-8-76" name="__codelineno-8-76" href="#__codelineno-8-76"></a><span class="c1"># emojiCompletionEnabled</span>
+<a id="__codelineno-8-77" name="__codelineno-8-77" href="#__codelineno-8-77"></a><span class="c1"># workflowSizeGuideline</span>
+<a id="__codelineno-8-78" name="__codelineno-8-78" href="#__codelineno-8-78"></a>
+<a id="__codelineno-8-79" name="__codelineno-8-79" href="#__codelineno-8-79"></a><span class="c1"># permission rule 参数匹配示意（语法不要翻译）</span>
+<a id="__codelineno-8-80" name="__codelineno-8-80" href="#__codelineno-8-80"></a><span class="c1"># Tool(param:value)</span>
+<a id="__codelineno-8-81" name="__codelineno-8-81" href="#__codelineno-8-81"></a>
+<a id="__codelineno-8-82" name="__codelineno-8-82" href="#__codelineno-8-82"></a><span class="c1"># hook matcher 组合示意（matcher key 和工具名不要翻译）</span>
+<a id="__codelineno-8-83" name="__codelineno-8-83" href="#__codelineno-8-83"></a><span class="c1"># "matcher": "Write,Edit"</span>
+<a id="__codelineno-8-84" name="__codelineno-8-84" href="#__codelineno-8-84"></a>
+<a id="__codelineno-8-85" name="__codelineno-8-85" href="#__codelineno-8-85"></a><span class="c1"># Auto Mode 严格 shell 分类示意（settings key 不要翻译）</span>
+<a id="__codelineno-8-86" name="__codelineno-8-86" href="#__codelineno-8-86"></a><span class="c1"># "autoMode": { "classifyAllShell": true }</span>
+<a id="__codelineno-8-87" name="__codelineno-8-87" href="#__codelineno-8-87"></a><span class="c1"># Team / Enterprise 管理员关闭 Auto Mode："permissions": { "disableAutoMode": "disable" }</span>
+</code></pre></div>
+<hr />
+<h2 id="-功能速查表">📋 功能速查表<a class="headerlink" href="#-功能速查表" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>安装 / 所在位置</th>
+<th>典型用法</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Slash Commands</td>
+<td><code>.claude/commands/*.md</code></td>
+<td><code>/command-name</code></td>
+<td>用户主动触发</td>
+</tr>
+<tr>
+<td>Memory</td>
+<td><code>./CLAUDE.md</code> / <code>~/.claude/CLAUDE.md</code></td>
+<td>自动加载</td>
+<td>长期规则和偏好</td>
+</tr>
+<tr>
+<td>Skills</td>
+<td><code>.claude/skills/*/SKILL.md</code></td>
+<td>自动触发</td>
+<td>可复用工作流</td>
+</tr>
+<tr>
+<td>Subagents</td>
+<td><code>.claude/agents/*.md</code></td>
+<td>自动委派 / 显式调用</td>
+<td>分工执行</td>
+</tr>
+<tr>
+<td>MCP</td>
+<td><code>.mcp.json</code> / <code>~/.claude.json</code></td>
+<td><code>/mcp</code>、工具调用</td>
+<td>实时外部能力</td>
+</tr>
+<tr>
+<td>Hooks</td>
+<td><code>~/.claude/hooks/*.sh</code> 等</td>
+<td>事件触发</td>
+<td>自动检查和自动化</td>
+</tr>
+<tr>
+<td>Plugins</td>
+<td><code>/plugin install</code></td>
+<td>一次安装多能力</td>
+<td>团队分发</td>
+</tr>
+<tr>
+<td>Checkpoints</td>
+<td>内建</td>
+<td><code>Esc+Esc</code>、<code>/rewind</code></td>
+<td>安全试错</td>
+</tr>
+<tr>
+<td>Planning Mode</td>
+<td>内建</td>
+<td><code>/plan &lt;task&gt;</code></td>
+<td>复杂任务规划</td>
+</tr>
+<tr>
+<td>Ultraplan</td>
+<td>内建</td>
+<td><code>/ultraplan &lt;task&gt;</code></td>
+<td>云端起草复杂计划</td>
+</tr>
+<tr>
+<td>Monitor Tool</td>
+<td>内建</td>
+<td>监控后台命令 stdout 事件流</td>
+<td>适合替代轮询</td>
+</tr>
+<tr>
+<td>Auto Mode Reset</td>
+<td>内建</td>
+<td><code>claude auto-mode reset [--yes]</code></td>
+<td>恢复默认自动权限规则</td>
+</tr>
+<tr>
+<td>Screen Reader Mode</td>
+<td>内建</td>
+<td><code>--ax-screen-reader</code></td>
+<td>纯文本渲染，便于辅助技术读取</td>
+</tr>
+<tr>
+<td>Print Mode</td>
+<td>内建</td>
+<td><code>claude -p</code></td>
+<td>脚本 / CI/CD</td>
+</tr>
+<tr>
+<td>Run / Verify Skills</td>
+<td>bundled skills</td>
+<td><code>/run</code>、<code>/verify</code>、<code>/run-skill-generator</code></td>
+<td>启动项目并确认改动真实可用；<code>/verify</code> 从 <code>v2.1.215+</code> 起仅显式调用</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="-哪些标识不能翻">🧠 哪些标识不能翻<a class="headerlink" href="#-哪些标识不能翻" title="Permanent link">&para;</a></h2>
+<p>这部分最容易踩坑，单独列出来：</p>
+<ul>
+<li><code>/optimize</code>、<code>/pr</code>、<code>/review-pr</code></li>
+<li><code>skills</code>、<code>hooks</code>、<code>MCP</code>、<code>CLI</code></li>
+<li><code>allowed-tools</code>、<code>tools</code>、<code>model</code>、<code>env</code></li>
+<li><code>GITHUB_TOKEN</code>、<code>DATABASE_URL</code></li>
+<li><code>.mcp.json</code></li>
+<li><code>claude -p</code></li>
+</ul>
+<p>想继续中文化仓库时，先看：</p>
+<ul>
+<li><a href="https://github.com/lhfer/claude-howto-zh-cn/blob/main/LOCALIZATION-STYLE.md">LOCALIZATION-STYLE.md</a></li>
+<li><a href="https://github.com/lhfer/claude-howto-zh-cn/blob/main/UPSTREAM.md">UPSTREAM.md</a></li>
+</ul>
+<hr />
+<h2 id="-常见场景速查">🎯 常见场景速查<a class="headerlink" href="#-常见场景速查" title="Permanent link">&para;</a></h2>
+<h3 id="代码审查">代码审查<a class="headerlink" href="#代码审查" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 方法 1：slash command</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>cp<span class="w"> </span><span class="m">01</span>-slash-commands/optimize.md<span class="w"> </span>.claude/commands/
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="c1"># 使用：/optimize</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 方法 2：subagent</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>cp<span class="w"> </span><span class="m">04</span>-subagents/code-reviewer.md<span class="w"> </span>.claude/agents/
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="c1"># 方法 3：skill</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>cp<span class="w"> </span>-r<span class="w"> </span><span class="m">03</span>-skills/code-review-specialist<span class="w"> </span>~/.claude/skills/
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="c1"># 方法 4：plugin</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>/plugin<span class="w"> </span>install<span class="w"> </span>pr-review
+</code></pre></div>
+<h3 id="文档生成">文档生成<a class="headerlink" href="#文档生成" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cp<span class="w"> </span><span class="m">01</span>-slash-commands/generate-api-docs.md<span class="w"> </span>.claude/commands/
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>cp<span class="w"> </span><span class="m">04</span>-subagents/documentation-writer.md<span class="w"> </span>.claude/agents/
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>cp<span class="w"> </span>-r<span class="w"> </span><span class="m">03</span>-skills/doc-generator<span class="w"> </span>~/.claude/skills/
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>/plugin<span class="w"> </span>install<span class="w"> </span>documentation
+</code></pre></div>
+<h3 id="devops运维自动化">DevOps（运维自动化）<a class="headerlink" href="#devops运维自动化" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>/plugin<span class="w"> </span>install<span class="w"> </span>devops-automation
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="c1"># 常见命令：/deploy /rollback /status /incident</span>
+</code></pre></div>
+<h3 id="团队规范">团队规范<a class="headerlink" href="#团队规范" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cp<span class="w"> </span><span class="m">02</span>-memory/project-CLAUDE.md<span class="w"> </span>./CLAUDE.md
+</code></pre></div>
+<h3 id="自动化与-hooks">自动化与 Hooks<a class="headerlink" href="#自动化与-hooks" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/.claude/hooks
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>cp<span class="w"> </span><span class="m">06</span>-hooks/*.sh<span class="w"> </span>~/.claude/hooks/
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/.claude/hooks/*.sh
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="c1"># 常见例子</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="c1"># - pre-commit.sh</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># - format-code.sh</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="c1"># - security-scan.sh</span>
+</code></pre></div>
+<h3 id="安全试错">安全试错<a class="headerlink" href="#安全试错" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># 修改前后都记得 checkpoint 可回退</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>/rewind
+</code></pre></div>
+<h3 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">"Run all tests and generate report"</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">"Run tests"</span><span class="w"> </span>--permission-mode<span class="w"> </span>dontAsk
+</code></pre></div>
+<hr />
+<h2 id="-中国用户特别注意">🇨🇳 中国用户特别注意<a class="headerlink" href="#-中国用户特别注意" title="Permanent link">&para;</a></h2>
+<h3 id="github-访问和-token">GitHub 访问和 Token<a class="headerlink" href="#github-访问和-token" title="Permanent link">&para;</a></h3>
+<ul>
+<li>很多 MCP 示例、plugin 示例默认依赖 GitHub。</li>
+<li>开始之前先确认你能访问 GitHub，并且 <code>GITHUB_TOKEN</code> 具备需要的 scope。</li>
+</ul>
+<h3 id="npm--npx--uv-使用提醒"><code>npm</code> / <code>npx</code> / <code>uv</code> 使用提醒<a class="headerlink" href="#npm--npx--uv-使用提醒" title="Permanent link">&para;</a></h3>
+<ul>
+<li>很多示例会用到 <code>npx</code> 安装 MCP server。</li>
+<li>Python 相关脚本和测试通常依赖 <code>uv</code>。</li>
+<li>如果第一次安装很慢，优先检查网络、代理、包管理镜像和证书环境。</li>
+</ul>
+<h3 id="windows--wsl-使用提醒">Windows / WSL 使用提醒<a class="headerlink" href="#windows--wsl-使用提醒" title="Permanent link">&para;</a></h3>
+<ul>
+<li>如果你在 Windows 上，优先明确自己是在 PowerShell、Git Bash，还是 WSL 里操作。</li>
+<li>部分 shell 脚本和路径写法默认更偏 Unix / macOS / Linux 风格。</li>
+</ul>
+<h3 id="翻译不要碰的地方">翻译不要碰的地方<a class="headerlink" href="#翻译不要碰的地方" title="Permanent link">&para;</a></h3>
+<ul>
+<li>frontmatter 字段名</li>
+<li>JSON key</li>
+<li>shell 命令</li>
+<li>环境变量</li>
+<li>slash command / skill / plugin / subagent 的名称</li>
+<li>hook 输入字段和输出 key，例如 <code>effort.level</code>、<code>CLAUDE_EFFORT</code>、<code>hookSpecificOutput.updatedToolOutput</code></li>
+</ul>
+<hr />
+<h2 id="-常用入口">🔗 常用入口<a class="headerlink" href="#-常用入口" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../">README.md</a></li>
+<li><a href="../LEARNING-ROADMAP/">LEARNING-ROADMAP.md</a></li>
+<li><a href="../CATALOG/">CATALOG.md</a></li>
+<li><a href="01-slash-commands/">01-slash-commands/</a></li>
+<li><a href="02-memory/">02-memory/</a></li>
+<li><a href="03-skills/">03-skills/</a></li>
+<li><a href="04-subagents/">04-subagents/</a></li>
+<li><a href="05-mcp/">05-mcp/</a></li>
+<li><a href="06-hooks/">06-hooks/</a></li>
+<li><a href="07-plugins/">07-plugins/</a></li>
+<li><a href="09-advanced-features/">09-advanced-features/</a></li>
+<li><a href="10-cli/">10-cli/</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="__comments">留言板</h2>
+  <p class="giscus-hint">全站所有页面共用这一个留言板，欢迎在这里提问、分享经验、指出错误。登录 GitHub 即可留言，请勿贴出公网 IP、订阅链接或证件信息。</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="PLANCK234/Claude-Guideline"
+    data-repo-id="R_kgDOVzCJIg"
+    data-category="Q&A"
+    data-category-id="DIC_kwDOVzCJIs4DLazy"
+    data-mapping="specific"
+    data-term="ClaudeDIY 留言板"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <script>
+    // 让 giscus 跟随站点的深色 / 浅色切换
+    var giscus = document.querySelector("script[src*=giscus]");
+    var palette = __md_get("__palette");
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light";
+      giscus.setAttribute("data-theme", theme);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      var ref = document.querySelector("[data-md-component=palette]");
+      if (!ref) return;
+      ref.addEventListener("change", function () {
+        var palette = __md_get("__palette");
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light";
+          var frame = document.querySelector(".giscus-frame");
+          if (frame) frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } }, "https://giscus.app");
+        }
+      });
+    });
+  </script>
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../CATALOG/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 功能总表">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                功能总表
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../WHATS-NEW/" class="md-footer__link md-footer__link--next" aria-label="下一页: 新能力速览">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                新能力速览
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 ClaudeDIY contributors · 独立社区教程，与 Anthropic 无关
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/PLANCK234/Claude-Guideline" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://planck234.github.io/Claude-Guideline/#__comments" target="_blank" rel="noopener" title="planck234.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 12V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14l4-4h10a1 1 0 0 0 1-1m4-6h-2v9H6v2a1 1 0 0 0 1 1h11l4 4V7a1 1 0 0 0-1-1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tabs.link", "content.action.edit", "toc.follow"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

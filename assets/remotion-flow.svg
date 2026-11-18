@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="660" viewBox="0 0 1000 660">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#D97757"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#6B8F71"/>
+    </marker>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .m{font-family:'Cascadia Code','JetBrains Mono',Consolas,monospace}
+      .flow{stroke-dasharray:9 7;animation:f 1.1s linear infinite}
+      @keyframes f{to{stroke-dashoffset:-16}}
+      .hl{animation:hl 10s infinite}
+      .h2{animation-delay:2s}.h3{animation-delay:4s}.h4{animation-delay:6s}.h5{animation-delay:8s}
+      @keyframes hl{0%,18%{stroke-width:2}6%{stroke-width:5}}
+    </style>
+  </defs>
+  <rect width="1000" height="660" rx="20" fill="#FBF6F1"/>
+
+  <!-- ① 想法 -->
+  <rect class="hl" x="240" y="28" width="300" height="64" rx="32" fill="#D97757" stroke="#A8502F" stroke-width="2"/>
+  <text x="390" y="69" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">一句话想法</text>
+  <path class="flow" d="M390 92 V146" stroke="#D97757" stroke-width="3" marker-end="url(#ar)"/>
+  <text x="412" y="126" font-size="18" fill="#7a6458"><tspan font-weight="700" fill="#D97757">①</tspan> 提示词编译器</text>
+
+  <!-- ② 规格 -->
+  <rect class="hl h2" x="110" y="152" width="560" height="92" rx="14" fill="#fff" stroke="#D97757" stroke-width="2"/>
+  <text x="390" y="190" text-anchor="middle" font-size="22" font-weight="700" fill="#3d2418">结构化分镜规格</text>
+  <text x="390" y="222" text-anchor="middle" font-size="16" fill="#7a6458">时长 · 配色 · 分镜表 · 验收标准</text>
+  <path class="flow" d="M390 244 V298" stroke="#D97757" stroke-width="3" marker-end="url(#ar)"/>
+  <text x="412" y="278" font-size="18" fill="#7a6458"><tspan font-weight="700" fill="#D97757">②</tspan> Claude Code + Remotion Skills</text>
+
+  <!-- ③ 代码 -->
+  <rect class="hl h3" x="110" y="304" width="560" height="70" rx="14" fill="#fff" stroke="#D97757" stroke-width="2"/>
+  <text x="390" y="347" text-anchor="middle" font-size="22" font-weight="700" fill="#3d2418">React / Remotion 代码</text>
+  <path class="flow" d="M330 374 V428" stroke="#D97757" stroke-width="3" marker-end="url(#ar)"/>
+  <text class="m" x="128" y="408" font-size="17" fill="#7a6458"><tspan font-weight="700" fill="#D97757">③</tspan> npm run dev</text>
+
+  <!-- ④ 预览 + 反馈环 -->
+  <rect class="hl h4" x="110" y="434" width="560" height="70" rx="14" fill="#fff" stroke="#D97757" stroke-width="2"/>
+  <text x="390" y="477" text-anchor="middle" font-size="22" font-weight="700" fill="#3d2418">Remotion Studio 实时预览</text>
+  <path class="flow" d="M670 469 H740 V339 H676" fill="none" stroke="#6B8F71" stroke-width="3" marker-end="url(#ag)"/>
+  <text x="760" y="396" font-size="18" font-weight="700" fill="#6B8F71">④ 反馈修改</text>
+  <text x="760" y="424" font-size="16" fill="#7a6458">“第 120 帧标题太小”</text>
+  <text x="760" y="448" font-size="16" fill="#7a6458">可以反复多轮</text>
+
+  <!-- ⑤ 渲染 -->
+  <path class="flow" d="M390 504 V558" stroke="#D97757" stroke-width="3" marker-end="url(#ar)"/>
+  <text class="m" x="412" y="538" font-size="17" fill="#7a6458"><tspan font-weight="700" fill="#D97757">⑤</tspan> npx remotion render</text>
+  <rect class="hl h5" x="240" y="564" width="300" height="64" rx="32" fill="#3d2418" stroke="#1a1410" stroke-width="2"/>
+  <text x="390" y="605" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">MP4 视频</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:15px}
+    .go{stroke-dasharray:240;stroke-dashoffset:240;animation:go 10s infinite}
+    .back{stroke-dasharray:240;stroke-dashoffset:240;animation:back 10s infinite}
+    .bar{animation:fill 10s infinite;transform-box:fill-box;transform-origin:left;transform:scaleX(0)}
+    .b2{animation-delay:.3s}.b3{animation-delay:.6s}
+    .sum{opacity:0;animation:sum 10s infinite}
+    @keyframes go{0%,5%{stroke-dashoffset:240}18%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes fill{0%,18%{transform:scaleX(0)}55%,88%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+    @keyframes back{0%,55%{stroke-dashoffset:240}66%,88%{stroke-dashoffset:0}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes sum{0%,66%{opacity:0}70%,88%{opacity:1}96%,100%{opacity:0}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">主 Claude 分派任务，子代理各用独立上下文并行完成</text>
+  <rect x="40" y="130" width="230" height="110" rx="14" fill="#3a2a22" stroke="#D97757" stroke-width="2"/>
+  <text x="155" y="172" text-anchor="middle" fill="#F5EDE6" font-weight="700">主 Claude</text>
+  <text x="155" y="198" text-anchor="middle" fill="#a89a8f" font-size="13">“审查这次 PR”</text>
+  <text class="sum" x="155" y="224" text-anchor="middle" fill="#9BE39B" font-size="13">汇总 3 份报告 ✓</text>
+  <g stroke="#D97757" stroke-width="2" fill="none">
+    <path class="go" d="M270 160 C 400 160, 420 92, 560 92"/><path class="go" d="M270 185 H560"/><path class="go" d="M270 210 C 400 210, 420 278, 560 278"/>
+  </g>
+  <g stroke="#9BE39B" stroke-width="2" fill="none">
+    <path class="back" d="M560 104 C 420 104, 400 170, 270 170"/><path class="back" d="M560 197 H270"/><path class="back" d="M560 266 C 420 266, 400 200, 270 200"/>
+  </g>
+  <g>
+    <rect x="560" y="62" width="368" height="64" rx="12" fill="#2b2420" stroke="#6f625a"/>
+    <text x="580" y="88" fill="#F5EDE6">code-reviewer <tspan fill="#a89a8f" font-size="12">· 只读工具</tspan></text>
+    <rect x="580" y="102" width="320" height="8" rx="4" fill="#1e1a17"/><rect class="bar" x="580" y="102" width="320" height="8" rx="4" fill="#D97757"/>
+    <rect x="560" y="155" width="368" height="64" rx="12" fill="#2b2420" stroke="#6f625a"/>
+    <text x="580" y="181" fill="#F5EDE6">test-engineer <tspan fill="#a89a8f" font-size="12">· 可运行测试</tspan></text>
+    <rect x="580" y="195" width="320" height="8" rx="4" fill="#1e1a17"/><rect class="bar b2" x="580" y="195" width="320" height="8" rx="4" fill="#D97757"/>
+    <rect x="560" y="248" width="368" height="64" rx="12" fill="#2b2420" stroke="#6f625a"/>
+    <text x="580" y="274" fill="#F5EDE6">secure-reviewer <tspan fill="#a89a8f" font-size="12">· 安全检查</tspan></text>
+    <rect x="580" y="288" width="320" height="8" rx="4" fill="#1e1a17"/><rect class="bar b3" x="580" y="288" width="320" height="8" rx="4" fill="#D97757"/>
+  </g>
+  <text x="40" y="300" fill="#6f625a" font-size="13">细节留在子代理里，主对话只拿结论</text>
+</svg>
