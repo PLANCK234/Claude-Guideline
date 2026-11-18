@@ -1,0 +1,36 @@
+name: Welcome
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+  discussion:
+    types: [created]
+
+permissions:
+  issues: write
+  pull-requests: write
+  discussions: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const msg = [
+              '感谢参与 ClaudeDIY。',
+              '',
+              '- 提问时请附上 `scripts/check.ps1` 或 `claude doctor` 的输出，便于定位问题。',
+              '- 请确认内容中没有公网 IP、代理订阅链接、API Key 或证件信息。',
+            ].join('\n');
+            if (context.eventName === 'discussion') {
+              await github.graphql(
+                `mutation($id: ID!, $body: String!) { addDiscussionComment(input: {discussionId: $id, body: $body}) { clientMutationId } }`,
+                { id: context.payload.discussion.node_id, body: msg });
+            } else {
+              const number = (context.payload.issue || context.payload.pull_request).number;
+              await github.rest.issues.createComment({ ...context.repo, issue_number: number, body: msg });
+            }

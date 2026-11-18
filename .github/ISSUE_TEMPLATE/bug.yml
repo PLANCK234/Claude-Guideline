@@ -1,0 +1,26 @@
+name: 🐛 脚本报错
+description: 仓库里的脚本 / 命令运行出错
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: script
+    attributes:
+      label: 哪个脚本
+      options: ["stop-all-claude.bat", "proxy.ps1", "proxy.sh", "ipv6.ps1", "check.ps1", "stop-all-claude.sh", "文档里的命令"]
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: 系统
+      options: ["Windows 10", "Windows 11", "WSL", "macOS", "Linux"]
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: 完整输出（请删除 IP、订阅链接等隐私）
+      render: shell
+    validations:
+      required: true

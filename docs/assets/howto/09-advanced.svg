@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px}
+    .k{font-family:'Cascadia Code',Consolas,monospace;font-size:13px}
+    .md{opacity:0;animation:cyc 12s infinite}
+    .d2{animation-delay:3s}.d3{animation-delay:6s}.d4{animation-delay:9s}
+    @keyframes cyc{0%{opacity:0}2%,23%{opacity:1}25%,100%{opacity:0}}
+    .hl{animation:hl 12s infinite}
+    .h2{animation-delay:3s}.h3{animation-delay:6s}.h4{animation-delay:9s}
+    @keyframes hl{0%{fill:#2b2420;stroke:#6f625a}2%,23%{fill:#3a2a22;stroke:#D97757}25%,100%{fill:#2b2420;stroke:#6f625a}}
+    .key{animation:press 3s infinite}
+    @keyframes press{0%,90%{transform:translateY(0)}95%{transform:translateY(3px)}100%{transform:translateY(0)}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">权限模式：决定 Claude 能自己做多少事</text>
+  <g class="key"><rect x="32" y="62" width="150" height="40" rx="8" fill="#2b2420" stroke="#E8A87C" stroke-width="2"/>
+    <text class="k" x="107" y="88" text-anchor="middle" fill="#F5EDE6">Shift + Tab</text></g>
+  <text x="196" y="88" fill="#a89a8f">循环切换 ↓</text>
+  <g class="k">
+    <rect class="hl" x="32" y="122" width="200" height="40" rx="8" stroke-width="2"/><text x="52" y="147" fill="#F5EDE6">manual</text>
+    <rect class="hl h2" x="32" y="172" width="200" height="40" rx="8" stroke-width="2"/><text x="52" y="197" fill="#F5EDE6">acceptEdits</text>
+    <rect class="hl h3" x="32" y="222" width="200" height="40" rx="8" stroke-width="2"/><text x="52" y="247" fill="#F5EDE6">plan</text>
+    <rect class="hl h4" x="32" y="272" width="200" height="40" rx="8" stroke-width="2"/><text x="52" y="297" fill="#F5EDE6">auto</text>
+  </g>
+  <rect x="270" y="122" width="658" height="190" rx="12" fill="#2b2420"/>
+  <g class="md"><text x="296" y="160" fill="#E8A87C" font-size="17" font-weight="700">manual · 日常默认</text>
+    <text x="296" y="196" fill="#F5EDE6">读文件不打扰，修改文件、执行命令前逐一询问你</text>
+    <text x="296" y="228" fill="#9BE39B">适合：刚上手、陌生项目、重要仓库</text></g>
+  <g class="md d2"><text x="296" y="160" fill="#E8A87C" font-size="17" font-weight="700">acceptEdits · 自动接受编辑</text>
+    <text x="296" y="196" fill="#F5EDE6">改文件不再询问，执行命令仍需确认</text>
+    <text x="296" y="228" fill="#9BE39B">适合：方向已确定、需要连续改多个文件</text></g>
+  <g class="md d3"><text x="296" y="160" fill="#E8A87C" font-size="17" font-weight="700">plan · 只规划，不动手</text>
+    <text x="296" y="196" fill="#F5EDE6">只读分析并给出分步计划，禁止任何文件写入</text>
+    <text x="296" y="228" fill="#9BE39B">适合：多文件重构、架构调整、高风险改动</text></g>
+  <g class="md d4"><text x="296" y="160" fill="#E8A87C" font-size="17" font-weight="700">auto · 自动执行 + 安全分类器</text>
+    <text x="296" y="196" fill="#F5EDE6">动作自动放行，但每一步都经过后台安全检查</text>
+    <text x="296" y="228" fill="#ff8c8c">先理解风险再开启，新手不建议作为默认</text></g>
+  <text x="296" y="290" fill="#6f625a" font-size="13">规划、后台任务、无头模式、worktree、沙箱 —— 都建立在权限之上</text>
+</svg>

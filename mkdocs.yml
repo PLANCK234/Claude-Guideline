@@ -1,0 +1,124 @@
+site_name: ClaudeDIY · Claude Code 自学指南
+site_url: https://planck234.github.io/Claude-Guideline/
+site_description: 一份 Claude Code 的中文自学指南：网络准备、终端代理、安装使用与个人经验
+site_author: ClaudeDIY contributors
+repo_name: PLANCK234/Claude-Guideline
+repo_url: https://github.com/PLANCK234/Claude-Guideline
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 ClaudeDIY contributors · 独立社区教程，与 Anthropic 无关
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+
+plugins:
+  - search:
+      separator: '[\s​\-]'
+  - callouts
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/PLANCK234/Claude-Guideline
+    - icon: material/forum
+      link: https://planck234.github.io/Claude-Guideline/#__comments
+
+nav:
+  - 前言: index.md
+  - 使用指南: guide.md
+  - 准备工作:
+      - 网络准备与 IP 泄露检测: 01-network.md
+      - 终端永久代理配置: 02-terminal-proxy.md
+  - 上手使用:
+      - 安装与使用: 03-install-and-usage.md
+      - 终止所有 Claude 进程: 04-stop-claude.md
+  - 实战:
+      - 用 Claude + Remotion 做动画: 06-remotion-animation.md
+  - 进阶篇:
+      - 总览与来源: howto/index.md
+      - 01 · Slash Commands: howto/01-slash-commands/README.md
+      - 02 · Memory: howto/02-memory/README.md
+      - 03 · Skills: howto/03-skills/README.md
+      - 04 · Subagents: howto/04-subagents/README.md
+      - 05 · MCP: howto/05-mcp/README.md
+      - 06 · Hooks: howto/06-hooks/README.md
+      - 07 · Plugins: howto/07-plugins/README.md
+      - 08 · Checkpoints: howto/08-checkpoints/README.md
+      - 09 · 高级功能: howto/09-advanced-features/README.md
+      - 10 · CLI: howto/10-cli/README.md
+      - 学习路线图: howto/LEARNING-ROADMAP.md
+      - 概念总览: howto/claude_concepts_guide.md
+      - 功能总表: howto/CATALOG.md
+      - 速查卡: howto/QUICK_REFERENCE.md
+      - 新能力速览: howto/WHATS-NEW.md
+  - 个人经验: 05-personal-notes.md

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
+  <defs>
+    <style>
+      text{font-family:'Cascadia Code','JetBrains Mono',Consolas,'Microsoft YaHei',monospace;font-size:16px}
+      .l{opacity:0;animation:show 16s infinite}
+      .l1{animation-delay:0s}.l2{animation-delay:1.2s}.l3{animation-delay:2.4s}.l4{animation-delay:3.4s}
+      .l5{animation-delay:4.6s}.l6{animation-delay:5.6s}.l7{animation-delay:6.6s}.l8{animation-delay:7.6s}
+      .l9{animation-delay:8.8s}.l10{animation-delay:10s}.l11{animation-delay:11.2s}
+      @keyframes show{0%{opacity:0}2%{opacity:1}90%{opacity:1}96%{opacity:0}100%{opacity:0}}
+      .c{animation:blink 1s steps(1) infinite}
+      @keyframes blink{50%{opacity:0}}
+    </style>
+  </defs>
+  <rect width="900" height="460" rx="14" fill="#1e1a17"/>
+  <rect width="900" height="40" rx="14" fill="#2b2420"/>
+  <rect y="26" width="900" height="14" fill="#2b2420"/>
+  <circle cx="26" cy="20" r="7" fill="#ff5f57"/><circle cx="50" cy="20" r="7" fill="#febc2e"/><circle cx="74" cy="20" r="7" fill="#28c840"/>
+  <text x="450" y="26" text-anchor="middle" fill="#a89a8f" font-size="14">PowerShell — claude</text>
+
+  <text class="l l1" x="24" y="76"><tspan fill="#9BE39B">PS D:\my-app&gt;</tspan><tspan fill="#F5EDE6"> claude</tspan></text>
+  <g class="l l2">
+    <rect x="24" y="92" width="852" height="70" rx="8" fill="none" stroke="#D97757"/>
+    <text x="44" y="120" fill="#D97757">✻ Welcome to Claude Code!</text>
+    <text x="44" y="146" fill="#a89a8f">/help 查看命令 · cwd: D:\my-app</text>
+  </g>
+  <text class="l l3" x="24" y="196"><tspan fill="#D97757">&gt;</tspan><tspan fill="#F5EDE6"> 给登录接口加上单元测试，并跑一遍</tspan></text>
+  <text class="l l4" x="24" y="230" fill="#E8A87C">● 正在阅读 src/auth/login.ts …</text>
+  <text class="l l5" x="24" y="258" fill="#E8A87C">● Write(tests/login.test.ts)</text>
+  <text class="l l6" x="44" y="282" fill="#9BE39B">+ 42 lines</text>
+  <text class="l l7" x="24" y="310" fill="#E8A87C">● Bash(npm test)</text>
+  <text class="l l8" x="44" y="334" fill="#9BE39B">✓ 6 passed  (1.2s)</text>
+  <text class="l l9" x="24" y="368" fill="#F5EDE6">已新增 6 个测试用例，覆盖成功登录、密码错误、</text>
+  <text class="l l10" x="24" y="392" fill="#F5EDE6">账号锁定与 token 过期场景，全部通过。✅</text>
+  <g class="l l11">
+    <text x="24" y="432"><tspan fill="#D97757">&gt;</tspan></text>
+    <rect class="c" x="40" y="418" width="10" height="18" fill="#F5EDE6"/>
+  </g>
+</svg>

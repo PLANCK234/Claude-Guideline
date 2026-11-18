@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-size:14px}
+    .m{font-family:'Cascadia Code',Consolas,monospace;font-size:12px}
+    .dot{animation:run 10s linear infinite}
+    @keyframes run{0%{transform:translateX(0)}100%{transform:translateX(820px)}}
+    .n{animation:lit 10s infinite}
+    .n2{animation-delay:2s}.n3{animation-delay:4s}.n4{animation-delay:6s}.n5{animation-delay:8s}
+    @keyframes lit{0%{fill:#D97757}8%{fill:#D97757}14%,100%{fill:#3a2a22}}
+    .pop{opacity:0;animation:pop 10s infinite}
+    .pre{animation-delay:3.6s}.post{animation-delay:7.6s}
+    @keyframes pop{0%{opacity:0;transform:translateY(8px)}4%,30%{opacity:1;transform:translateY(0)}36%,100%{opacity:0}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">Hooks：在固定时机自动执行你的脚本</text>
+  <line x1="70" y1="180" x2="890" y2="180" stroke="#6f625a" stroke-width="3"/>
+  <circle class="dot" cx="70" cy="180" r="9" fill="#F4B183"/>
+  <g text-anchor="middle">
+    <circle class="n" cx="70" cy="180" r="16"/><text x="70" y="220" fill="#F5EDE6">SessionStart</text><text x="70" y="240" fill="#a89a8f" font-size="12">会话开始</text>
+    <circle class="n n2" cx="275" cy="180" r="16"/><text x="275" y="220" fill="#F5EDE6">UserPromptSubmit</text><text x="275" y="240" fill="#a89a8f" font-size="12">提交提示词</text>
+    <circle class="n n3" cx="480" cy="180" r="16"/><text x="480" y="220" fill="#F5EDE6">PreToolUse</text><text x="480" y="240" fill="#a89a8f" font-size="12">工具执行前</text>
+    <circle class="n n4" cx="685" cy="180" r="16"/><text x="685" y="220" fill="#F5EDE6">PostToolUse</text><text x="685" y="240" fill="#a89a8f" font-size="12">工具执行后</text>
+    <circle class="n n5" cx="890" cy="180" r="16"/><text x="890" y="220" fill="#F5EDE6">Stop</text><text x="890" y="240" fill="#a89a8f" font-size="12">回答结束</text>
+  </g>
+  <g class="pop pre">
+    <rect x="360" y="66" width="250" height="78" rx="10" fill="#3a1f1f" stroke="#ff6b6b"/>
+    <text class="m" x="378" y="92" fill="#F5EDE6">Bash: rm -rf /</text>
+    <text x="378" y="116" fill="#ff8c8c">✗ pre-tool-check.sh 拦截</text>
+    <text class="m" x="378" y="134" fill="#a89a8f">exit 2 → 阻止并告知原因</text>
+  </g>
+  <g class="pop post">
+    <rect x="565" y="66" width="250" height="78" rx="10" fill="#1f3a24" stroke="#9BE39B"/>
+    <text class="m" x="583" y="92" fill="#F5EDE6">Write: src/app.ts</text>
+    <text x="583" y="116" fill="#9BE39B">✓ format-code.sh 自动格式化</text>
+    <text class="m" x="583" y="134" fill="#a89a8f">exit 0 → 继续</text>
+  </g>
+  <text x="32" y="300" fill="#6f625a" font-size="13">把“每次都要手动做的检查”交给事件自动触发</text>
+</svg>

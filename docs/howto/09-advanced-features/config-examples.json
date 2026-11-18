@@ -1,0 +1,234 @@
+{
+  "description": "面向不同场景的 Claude Code settings.json 配置示例",
+  "examples": {
+    "development": {
+      "name": "开发环境",
+      "description": "适用于日常开发：自动接受编辑、按规则批准命令，并在写入后执行格式化和 lint",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "acceptEdits",
+          "allow": [
+            "Bash(npm run *)",
+            "Bash(git diff:*)",
+            "Bash(git status:*)"
+          ]
+        },
+        "hooks": {
+          "PostToolUse": [
+            {
+              "matcher": "Write|Edit",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/format-and-lint.sh"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "code_review": {
+      "name": "代码审查模式",
+      "description": "只审查代码、不修改文件的配置",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "plan"
+        },
+        "env": {
+          "CLAUDE_CODE_EFFORT_LEVEL": "high"
+        }
+      }
+    },
+    "learning": {
+      "name": "学习模式",
+      "description": "适用于学习和试验：操作前询问，并保留文件 checkpoints",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "manual"
+        },
+        "env": {
+          "CLAUDE_CODE_EFFORT_LEVEL": "high"
+        },
+        "fileCheckpointingEnabled": true
+      }
+    },
+    "production": {
+      "name": "生产部署",
+      "description": "适用于带安全检查的生产操作",
+      "config": {
+        "model": "claude-opus-5",
+        "permissions": {
+          "defaultMode": "manual",
+          "deny": [
+            "Bash(git push --force*)",
+            "Bash(rm -rf*)"
+          ]
+        },
+        "hooks": {
+          "PreToolUse": [
+            {
+              "matcher": "Bash",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/pre-commit.sh"
+                }
+              ]
+            }
+          ]
+        },
+        "fileCheckpointingEnabled": true
+      }
+    },
+    "ci_cd": {
+      "name": "CI/CD 流程",
+      "description": "适用于通过 `claude -p` 非交互运行的自动化 CI/CD",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "acceptEdits",
+          "allow": [
+            "Bash(npm test:*)",
+            "Bash(npm run build:*)",
+            "Bash(npm run lint:*)"
+          ]
+        },
+        "env": {
+          "CI": "true"
+        }
+      }
+    },
+    "security_audit": {
+      "name": "安全审计",
+      "description": "面向安全分析的只读配置",
+      "config": {
+        "model": "claude-opus-5",
+        "permissions": {
+          "defaultMode": "plan"
+        },
+        "env": {
+          "CLAUDE_CODE_EFFORT_LEVEL": "max"
+        },
+        "hooks": {
+          "PostToolUse": [
+            {
+              "matcher": "Read",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/security-scan.sh"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "performance_optimization": {
+      "name": "性能优化",
+      "description": "适用于性能分析和优化",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "acceptEdits"
+        },
+        "fileCheckpointingEnabled": true
+      }
+    },
+    "pair_programming": {
+      "name": "结对编程",
+      "description": "适用于协作式开发",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "manual"
+        },
+        "env": {
+          "CLAUDE_CODE_EFFORT_LEVEL": "high"
+        }
+      }
+    },
+    "refactoring": {
+      "name": "大型重构",
+      "description": "适用于大型重构：编辑前备份，编辑后运行相关测试",
+      "config": {
+        "model": "claude-opus-5",
+        "permissions": {
+          "defaultMode": "manual",
+          "allow": [
+            "Bash(npm test -- --findRelatedTests *)"
+          ]
+        },
+        "fileCheckpointingEnabled": true,
+        "hooks": {
+          "PreToolUse": [
+            {
+              "matcher": "Edit",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/backup-file.sh"
+                }
+              ]
+            }
+          ],
+          "PostToolUse": [
+            {
+              "matcher": "Edit",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/run-related-tests.sh"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "autonomous": {
+      "name": "自主开发",
+      "description": "适用于 Auto Mode，并结合后台安全分类器与文件系统/网络 sandbox",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "auto"
+        },
+        "sandbox": {
+          "enabled": true,
+          "failIfUnavailable": false
+        }
+      }
+    },
+    "documentation": {
+      "name": "文档编写",
+      "description": "适用于编写 Markdown 文档",
+      "config": {
+        "model": "claude-sonnet-5",
+        "permissions": {
+          "defaultMode": "acceptEdits",
+          "allow": [
+            "Write(**/*.md)"
+          ]
+        },
+        "hooks": {
+          "PostToolUse": [
+            {
+              "matcher": "Write",
+              "hooks": [
+                {
+                  "type": "command",
+                  "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/markdownlint.sh"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="280" viewBox="0 0 1000 280">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .flow{stroke-dasharray:6 6;animation:f 1s linear infinite}
+      @keyframes f{to{stroke-dashoffset:-12}}
+    </style>
+  </defs>
+  <rect width="1000" height="280" rx="20" fill="#FBF6F1"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#3d2418">为什么浏览器能用，终端却连不上？</text>
+  <text x="40" y="72" font-size="15" fill="#7a6458">系统代理只管浏览器；终端程序只认环境变量 HTTPS_PROXY</text>
+  <g font-size="16">
+    <rect x="40" y="100" width="200" height="56" rx="12" fill="#fff" stroke="#E8A87C"/><text x="140" y="134" text-anchor="middle" fill="#3d2418">🌐 浏览器</text>
+    <rect x="40" y="186" width="200" height="56" rx="12" fill="#fff" stroke="#E8A87C"/><text x="140" y="220" text-anchor="middle" fill="#3d2418">⌨ PowerShell / WSL</text>
+    <rect x="330" y="100" width="220" height="56" rx="12" fill="#F4D9C6"/><text x="440" y="134" text-anchor="middle" fill="#3d2418">系统代理（自动）</text>
+    <rect x="330" y="186" width="220" height="56" rx="12" fill="#F4D9C6"/><text x="440" y="220" text-anchor="middle" fill="#3d2418">HTTPS_PROXY 环境变量</text>
+    <rect x="640" y="140" width="160" height="62" rx="12" fill="#D97757"/><text x="720" y="166" text-anchor="middle" fill="#fff" font-weight="700">代理客户端</text><text x="720" y="188" text-anchor="middle" fill="#fff" font-size="14">127.0.0.1:7890</text>
+    <rect x="860" y="140" width="110" height="62" rx="12" fill="#3d2418"/><text x="915" y="177" text-anchor="middle" fill="#fff">Claude</text>
+  </g>
+  <path class="flow" d="M240 128 H330 M240 214 H330 M550 128 C600 128,600 160,640 160 M550 214 C600 214,600 182,640 182 M800 171 H860" stroke="#D97757" stroke-width="3" fill="none"/>
+  <text x="440" y="268" text-anchor="middle" font-size="14" fill="#b4533a">⬆ 第二条线默认是断的，需要你手动设置（见 02 章）</text>
+</svg>

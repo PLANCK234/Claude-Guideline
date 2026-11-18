@@ -1,0 +1,43 @@
+{% if page.meta.comments != false %}
+  <h2 id="__comments">留言板</h2>
+  <p class="giscus-hint">全站所有页面共用这一个留言板，欢迎在这里提问、分享经验、指出错误。登录 GitHub 即可留言，请勿贴出公网 IP、订阅链接或证件信息。</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="PLANCK234/Claude-Guideline"
+    data-repo-id="R_kgDOVzCJIg"
+    data-category="Q&A"
+    data-category-id="DIC_kwDOVzCJIs4DLazy"
+    data-mapping="specific"
+    data-term="ClaudeDIY 留言板"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async>
+  </script>
+  <script>
+    // 让 giscus 跟随站点的深色 / 浅色切换
+    var giscus = document.querySelector("script[src*=giscus]");
+    var palette = __md_get("__palette");
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light";
+      giscus.setAttribute("data-theme", theme);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      var ref = document.querySelector("[data-md-component=palette]");
+      if (!ref) return;
+      ref.addEventListener("change", function () {
+        var palette = __md_get("__palette");
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light";
+          var frame = document.querySelector(".giscus-frame");
+          if (frame) frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } }, "https://giscus.app");
+        }
+      });
+    });
+  </script>
+{% endif %}

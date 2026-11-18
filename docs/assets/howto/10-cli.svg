@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="340" viewBox="0 0 960 340">
+  <defs><style>
+    text{font-family:'Cascadia Code','JetBrains Mono',Consolas,'Microsoft YaHei',monospace;font-size:15px}
+    .t{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+    .a{opacity:0;animation:show 10s infinite}
+    .c1{animation-delay:.2s}.o1{animation-delay:2.6s}.o2{animation-delay:3.2s}.o3{animation-delay:3.8s}.c2{animation-delay:5s}.o4{animation-delay:7s}
+    @keyframes show{0%{opacity:0}3%,86%{opacity:1}93%,100%{opacity:0}}
+    .pk{animation:mv 10s linear infinite;opacity:0}
+    @keyframes mv{0%,4%{transform:translateX(0);opacity:0}6%{opacity:1}22%{transform:translateX(560px);opacity:1}24%,100%{opacity:0;transform:translateX(560px)}}
+  </style></defs>
+  <rect width="960" height="340" rx="14" fill="#1e1a17"/>
+  <text class="t" x="32" y="40" fill="#F5EDE6" font-size="18" font-weight="700">claude -p：一条命令进，一个结果出，可以接进任何脚本</text>
+  <g class="a c1">
+    <text x="32" y="88" fill="#9BE39B">$</text>
+    <text x="52" y="88" fill="#F5EDE6">cat error.log <tspan fill="#D97757">|</tspan> claude -p "解释这个错误" <tspan fill="#D97757">&gt;</tspan> report.md</text>
+  </g>
+  <g>
+    <rect x="52" y="110" width="150" height="44" rx="8" fill="#2b2420" stroke="#6f625a"/><text x="78" y="138" fill="#F5EDE6">error.log</text>
+    <rect x="380" y="110" width="200" height="44" rx="8" fill="#3a2a22" stroke="#D97757"/><text x="404" y="138" fill="#F5EDE6">claude -p</text>
+    <rect x="720" y="110" width="170" height="44" rx="8" fill="#2b2420" stroke="#9BE39B"/><text x="746" y="138" fill="#F5EDE6">report.md</text>
+    <path d="M202 132 H380 M580 132 H720" stroke="#6f625a" stroke-width="2" stroke-dasharray="5 5"/>
+    <circle class="pk" cx="160" cy="132" r="6" fill="#D97757"/>
+  </g>
+  <text class="a o1" x="52" y="190" fill="#a89a8f"># report.md</text>
+  <text class="a o2" x="52" y="214" fill="#F5EDE6">原因：连接池耗尽（max=10），第 42 行未释放连接</text>
+  <text class="a o3" x="52" y="238" fill="#F5EDE6">修复：在 finally 中调用 conn.release()</text>
+  <g class="a c2">
+    <text x="32" y="280" fill="#9BE39B">$</text>
+    <text x="52" y="280" fill="#F5EDE6">claude -p --output-format json "列出所有 TODO" <tspan fill="#D97757">|</tspan> jq '.result'</text>
+  </g>
+  <text class="a o4 t" x="52" y="314" fill="#9BE39B" font-size="14">交互模式适合聊，-p 模式适合脚本、CI 和批处理</text>
+</svg>

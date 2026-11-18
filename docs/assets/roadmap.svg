@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="470" viewBox="0 0 1100 470">
+  <defs>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0" stop-color="#E8A87C"/><stop offset="1" stop-color="#D97757"/>
+    </linearGradient>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .flow{stroke-dasharray:10 8;animation:flow 1.2s linear infinite}
+      @keyframes flow{to{stroke-dashoffset:-18}}
+      .n{animation:pulse 9s infinite;transform-box:fill-box;transform-origin:center}
+      .n2{animation-delay:1.5s}.n3{animation-delay:3s}.n4{animation-delay:4.5s}.n5{animation-delay:6s}.n6{animation-delay:7.5s}
+      @keyframes pulse{0%,12%{transform:scale(1)}5%{transform:scale(1.14)}}
+      .g{animation:glow 6s infinite}
+      .g2{animation-delay:2s}.g3{animation-delay:4s}
+      @keyframes glow{0%,30%{stroke-width:2}12%{stroke-width:4}}
+    </style>
+  </defs>
+  <rect width="1100" height="470" rx="20" fill="#FBF6F1"/>
+
+  <!-- 基础篇 -->
+  <text x="44" y="52" font-size="22" font-weight="700" fill="#3d2418">基础篇</text>
+  <text x="122" y="52" font-size="16" fill="#7a6458">按顺序读，把网络、终端和安装配好</text>
+  <path class="flow" d="M110 125 H990" stroke="url(#line)" stroke-width="4" fill="none"/>
+  <g text-anchor="middle">
+    <g><circle class="n" cx="110" cy="125" r="38" fill="#D97757"/><text x="110" y="134" font-size="24" font-weight="700" fill="#fff">01</text>
+      <text x="110" y="194" font-size="18" font-weight="700" fill="#3d2418">网络与防泄露</text><text x="110" y="218" font-size="14" fill="#7a6458">WebRTC · DNS · IPv6</text></g>
+    <g><circle class="n n2" cx="286" cy="125" r="38" fill="#D97757"/><text x="286" y="134" font-size="24" font-weight="700" fill="#fff">02</text>
+      <text x="286" y="194" font-size="18" font-weight="700" fill="#3d2418">终端永久代理</text><text x="286" y="218" font-size="14" fill="#7a6458">PowerShell · WSL · Bash</text></g>
+    <g><circle class="n n3" cx="462" cy="125" r="38" fill="#D97757"/><text x="462" y="134" font-size="24" font-weight="700" fill="#fff">03</text>
+      <text x="462" y="194" font-size="18" font-weight="700" fill="#3d2418">安装与使用</text><text x="462" y="218" font-size="14" fill="#7a6458">桌面应用优先</text></g>
+    <g><circle class="n n4" cx="638" cy="125" r="38" fill="#D97757"/><text x="638" y="134" font-size="24" font-weight="700" fill="#fff">04</text>
+      <text x="638" y="194" font-size="18" font-weight="700" fill="#3d2418">终止所有进程</text><text x="638" y="218" font-size="14" fill="#7a6458">调代理前必做</text></g>
+    <g><circle class="n n5" cx="814" cy="125" r="38" fill="#A8502F"/><text x="814" y="134" font-size="24" font-weight="700" fill="#fff">06</text>
+      <text x="814" y="194" font-size="18" font-weight="700" fill="#3d2418">实战：做动画</text><text x="814" y="218" font-size="14" fill="#7a6458">Remotion + 提示词编译器</text></g>
+    <g><circle class="n n6" cx="990" cy="125" r="38" fill="#3d2418"/><text x="990" y="134" font-size="24" font-weight="700" fill="#fff">05</text>
+      <text x="990" y="194" font-size="18" font-weight="700" fill="#3d2418">个人经验</text><text x="990" y="218" font-size="14" fill="#7a6458">订阅 · 验证 · 踩坑</text></g>
+  </g>
+
+  <!-- 分隔 -->
+  <line x1="44" y1="252" x2="1056" y2="252" stroke="#E8D5C6" stroke-width="2"/>
+
+  <!-- 进阶篇 -->
+  <text x="44" y="292" font-size="22" font-weight="700" fill="#3d2418">进阶篇</text>
+  <text x="122" y="292" font-size="16" fill="#7a6458">按需查阅，每个模块都有动画与实例</text>
+  <g>
+    <rect class="g" x="44" y="316" width="300" height="122" rx="16" fill="#fff" stroke="#E8A87C" stroke-width="2"/>
+    <text x="68" y="350" font-size="19" font-weight="700" fill="#D97757">入门</text>
+    <text x="68" y="380" font-size="16" fill="#3d2418">01 Slash Commands</text>
+    <text x="68" y="404" font-size="16" fill="#3d2418">02 Memory · 08 Checkpoints</text>
+
+    <rect class="g g2" x="400" y="316" width="300" height="122" rx="16" fill="#fff" stroke="#D97757" stroke-width="2"/>
+    <text x="424" y="350" font-size="19" font-weight="700" fill="#D97757">进阶</text>
+    <text x="424" y="380" font-size="16" fill="#3d2418">03 Skills · 06 Hooks</text>
+    <text x="424" y="404" font-size="16" fill="#3d2418">05 MCP · 04 Subagents</text>
+
+    <rect class="g g3" x="756" y="316" width="300" height="122" rx="16" fill="#fff" stroke="#A8502F" stroke-width="2"/>
+    <text x="780" y="350" font-size="19" font-weight="700" fill="#A8502F">高级</text>
+    <text x="780" y="380" font-size="16" fill="#3d2418">09 高级功能 · 10 CLI</text>
+    <text x="780" y="404" font-size="16" fill="#3d2418">07 Plugins</text>
+  </g>
+  <g stroke="#D97757" stroke-width="3" fill="none">
+    <path class="flow" d="M344 377 H400"/><path class="flow" d="M700 377 H756"/>
+  </g>
+  <path d="M392 370 l10 7 l-10 7 z M748 370 l10 7 l-10 7 z" fill="#D97757"/>
+</svg>

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 使用问题请到网站留言板讨论
+    url: https://planck234.github.io/Claude-Guideline/#__comments
+    about: 网络、安装、登录相关的问题欢迎在留言板讨论，全站共用一个
+  - name: 📖 官方文档
+    url: https://code.claude.com/docs
+    about: Claude Code 官方文档

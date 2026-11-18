@@ -1,0 +1,36 @@
+title: "[求助] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🙋 提问前先看看
+        - [常见问题](https://github.com/PLANCK234/Claude-Guideline#readme)
+        - 运行 `.\scripts\check.ps1` 或 `claude doctor`，把结果贴上来能更快定位
+        > ⚠️ 请勿贴出：完整公网 IP、代理订阅链接、API Key、证件信息
+  - type: dropdown
+    id: os
+    attributes:
+      label: 你的系统
+      options: ["Windows (PowerShell)", "Windows (CMD)", "WSL", "macOS", "Linux"]
+    validations:
+      required: true
+  - type: dropdown
+    id: chapter
+    attributes:
+      label: 卡在哪一章
+      options: ["01 网络防泄露", "02 终端代理", "03 安装上手", "04 终止进程", "其他"]
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 遇到了什么问题
+      description: 你做了什么、期望什么、实际发生了什么
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: 报错 / 输出（脱敏后）
+      render: shell
