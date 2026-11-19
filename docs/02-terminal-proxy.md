@@ -8,11 +8,14 @@
 
 ## 开始之前：确认代理端口
 
-打开代理客户端的设置，找到 **HTTP 端口** 或 **Mixed（混合）端口**，下文统一以 `7890` 为例，请替换为你自己的端口。
+打开代理客户端的设置，找到 **HTTP 端口** 或 **Mixed（混合）端口**，下文统一以 Clash Verge Rev 的默认端口 `7897` 为例，请替换为你自己的端口。
+
+![在 Clash Verge Rev 中找到代理端口](assets/clash-port.svg)
 
 | 常见客户端 | 默认端口 |
 | :-- | :-- |
-| Clash Verge / Clash for Windows / Mihomo | `7890`（Mixed） |
+| Clash Verge Rev / Mihomo Party | `7897`（混合端口，见首页“Clash 信息”卡片） |
+| Clash for Windows（旧版） | `7890`（Mixed） |
 | v2rayN | `10809`（HTTP），`10808` 为 SOCKS |
 | Shadowrocket / Surge（macOS） | 以客户端设置页显示为准 |
 
@@ -39,13 +42,13 @@
 **方式一：脚本**（在仓库根目录的 PowerShell 中执行）
 
 ```powershell
-.\scripts\proxy.ps1 on 7890
+.\scripts\proxy.ps1 on 7897
 ```
 
 **方式二：手动**（PowerShell 中逐行执行，无需管理员权限）
 
 ```powershell
-$p = 'http://127.0.0.1:7890'
+$p = 'http://127.0.0.1:7897'
 [Environment]::SetEnvironmentVariable('HTTP_PROXY',  $p, 'User')
 [Environment]::SetEnvironmentVariable('HTTPS_PROXY', $p, 'User')
 [Environment]::SetEnvironmentVariable('ALL_PROXY',   $p, 'User')
@@ -55,15 +58,15 @@ $p = 'http://127.0.0.1:7890'
 如果习惯用 CMD，以下命令效果相同：
 
 ```bat
-setx HTTP_PROXY  http://127.0.0.1:7890
-setx HTTPS_PROXY http://127.0.0.1:7890
-setx ALL_PROXY   http://127.0.0.1:7890
+setx HTTP_PROXY  http://127.0.0.1:7897
+setx HTTPS_PROXY http://127.0.0.1:7897
+setx ALL_PROXY   http://127.0.0.1:7897
 setx NO_PROXY    localhost,127.0.0.1,::1
 ```
 
 **方式三：图形界面**
 
-`Win + R` 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables` → 在“用户变量”中新建 `HTTP_PROXY`、`HTTPS_PROXY`，值均为 `http://127.0.0.1:7890`。
+`Win + R` 输入 `rundll32 sysdm.cpl,EditEnvironmentVariables` → 在“用户变量”中新建 `HTTP_PROXY`、`HTTPS_PROXY`，值均为 `http://127.0.0.1:7897`。
 
 **最后一步（必做）：** 关闭**所有** PowerShell、CMD、Windows Terminal 与 VS Code 窗口（VS Code 需完全退出，而不是只关闭终端面板），再重新打开。
 
@@ -72,7 +75,7 @@ setx NO_PROXY    localhost,127.0.0.1,::1
 PowerShell：
 
 ```powershell
-$env:HTTPS_PROXY          # 应输出 http://127.0.0.1:7890
+$env:HTTPS_PROXY          # 应输出 http://127.0.0.1:7897
 curl.exe ipinfo.io        # 应显示代理节点的 IP（注意要带 .exe）
 ```
 
@@ -100,10 +103,10 @@ CMD 中使用 `echo %HTTPS_PROXY%` 与 `curl ipinfo.io`；Git Bash 中使用 `ec
 Git 与 npm 通常会读取上面的环境变量。如果仍然不生效，可单独配置：
 
 ```powershell
-git config --global http.proxy  http://127.0.0.1:7890
-git config --global https.proxy http://127.0.0.1:7890
-npm config set proxy       http://127.0.0.1:7890
-npm config set https-proxy http://127.0.0.1:7890
+git config --global http.proxy  http://127.0.0.1:7897
+git config --global https.proxy http://127.0.0.1:7897
+npm config set proxy       http://127.0.0.1:7897
+npm config set https-proxy http://127.0.0.1:7897
 ```
 
 撤销：`git config --global --unset http.proxy`、`git config --global --unset https.proxy`、`npm config delete proxy`、`npm config delete https-proxy`。
@@ -140,7 +143,7 @@ WSL 在 NAT 模式下属于“另一台机器”，需要代理客户端接受�
 **方式一：脚本**（在 WSL 中进入仓库目录执行）
 
 ```bash
-bash scripts/proxy.sh on 7890
+bash scripts/proxy.sh on 7897
 source ~/.bashrc
 ```
 
@@ -150,7 +153,7 @@ source ~/.bashrc
 cat >> ~/.bashrc <<'EOF'
 
 # >>> claude-diy proxy >>>
-PROXY_PORT=7890
+PROXY_PORT=7897
 if timeout 1 bash -c "</dev/tcp/127.0.0.1/$PROXY_PORT" 2>/dev/null; then
   PROXY_HOST=127.0.0.1                                              # 镜像网络
 else
@@ -168,7 +171,7 @@ source ~/.bashrc
 ### 第 3 步：验证
 
 ```bash
-echo $HTTPS_PROXY       # NAT 模式下形如 http://172.x.x.1:7890
+echo $HTTPS_PROXY       # NAT 模式下形如 http://172.x.x.1:7897
 curl ipinfo.io          # 应显示代理节点的 IP
 ```
 
@@ -178,7 +181,7 @@ curl ipinfo.io          # 应显示代理节点的 IP
 
 ```powershell
 New-NetFirewallRule -DisplayName "WSL to Proxy" -Direction Inbound -Action Allow `
-  -Protocol TCP -LocalPort 7890 -RemoteAddress 172.16.0.0/12
+  -Protocol TCP -LocalPort 7897 -RemoteAddress 172.16.0.0/12
 ```
 
 撤销：`Remove-NetFirewallRule -DisplayName "WSL to Proxy"`
@@ -223,7 +226,7 @@ networkingMode=mirrored
 **方式一：脚本**
 
 ```bash
-bash scripts/proxy.sh on 7890
+bash scripts/proxy.sh on 7897
 source ~/.zshrc        # bash 用户改为 source ~/.bashrc
 ```
 
@@ -233,7 +236,7 @@ source ~/.zshrc        # bash 用户改为 source ~/.bashrc
 cat >> ~/.bashrc <<'EOF'
 
 # >>> claude-diy proxy >>>
-export HTTP_PROXY=http://127.0.0.1:7890
+export HTTP_PROXY=http://127.0.0.1:7897
 export HTTPS_PROXY="$HTTP_PROXY" ALL_PROXY="$HTTP_PROXY"
 export http_proxy="$HTTP_PROXY" https_proxy="$HTTP_PROXY" all_proxy="$HTTP_PROXY"
 export NO_PROXY=localhost,127.0.0.1,::1 no_proxy=localhost,127.0.0.1,::1
@@ -273,8 +276,8 @@ bash scripts/proxy.sh off
 ```json
 {
   "env": {
-    "HTTP_PROXY": "http://127.0.0.1:7890",
-    "HTTPS_PROXY": "http://127.0.0.1:7890"
+    "HTTP_PROXY": "http://127.0.0.1:7897",
+    "HTTPS_PROXY": "http://127.0.0.1:7897"
   }
 }
 ```
@@ -282,6 +285,27 @@ bash scripts/proxy.sh off
 如果文件中已有其他配置，只需把 `env` 一项合并进去。WSL 在 NAT 模式下这里不能写 `127.0.0.1`，请优先使用上面的 [WSL 通用方法](#wsl)。
 
 **验证：** 重新启动 `claude`，能正常对话即配置成功；也可以运行 `claude doctor` 查看。
+
+---
+
+## 不走代理的地址（NO_PROXY）
+
+`NO_PROXY` 中列出的地址，终端程序（curl、git、npm、Claude Code 等）会直接连接，不经过代理。脚本默认写入 `localhost,127.0.0.1,::1`。如果需要在终端里访问校园内网，把学校域名追加进去，以英文逗号分隔，域名前加 `.` 表示包含所有子域名：
+
+```powershell
+# Windows（PowerShell）
+[Environment]::SetEnvironmentVariable('NO_PROXY', 'localhost,127.0.0.1,::1,.xxx.edu.cn', 'User')
+```
+
+```bash
+# WSL / macOS / Linux：修改 ~/.bashrc 或 ~/.zshrc 中 claude-diy 标记内的这一行
+export NO_PROXY=localhost,127.0.0.1,::1,.xxx.edu.cn no_proxy=localhost,127.0.0.1,::1,.xxx.edu.cn
+```
+
+改完同样需要重开终端。浏览器的绕过设置与 Clash 直连规则见 [01 章 · 让某些网站不走代理](01-network.md#让某些网站不走代理如校园内网)。
+
+> [!NOTE]
+> 即使不改 `NO_PROXY`，只要 Clash 中已添加了对应的 `DIRECT` 规则，终端访问内网也会由 Clash 直连转发。`NO_PROXY` 适合连 Clash 都不该经过的情况，例如校园网认证。
 
 ---
 

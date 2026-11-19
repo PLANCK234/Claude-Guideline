@@ -14,7 +14,7 @@
     <rect x="40" y="186" width="200" height="56" rx="12" fill="#fff" stroke="#E8A87C"/><text x="140" y="220" text-anchor="middle" fill="#3d2418">⌨ PowerShell / WSL</text>
     <rect x="330" y="100" width="220" height="56" rx="12" fill="#F4D9C6"/><text x="440" y="134" text-anchor="middle" fill="#3d2418">系统代理（自动）</text>
     <rect x="330" y="186" width="220" height="56" rx="12" fill="#F4D9C6"/><text x="440" y="220" text-anchor="middle" fill="#3d2418">HTTPS_PROXY 环境变量</text>
-    <rect x="640" y="140" width="160" height="62" rx="12" fill="#D97757"/><text x="720" y="166" text-anchor="middle" fill="#fff" font-weight="700">代理客户端</text><text x="720" y="188" text-anchor="middle" fill="#fff" font-size="14">127.0.0.1:7890</text>
+    <rect x="640" y="140" width="160" height="62" rx="12" fill="#D97757"/><text x="720" y="166" text-anchor="middle" fill="#fff" font-weight="700">代理客户端</text><text x="720" y="188" text-anchor="middle" fill="#fff" font-size="14">127.0.0.1:7897</text>
     <rect x="860" y="140" width="110" height="62" rx="12" fill="#3d2418"/><text x="915" y="177" text-anchor="middle" fill="#fff">Claude</text>
   </g>
   <path class="flow" d="M240 128 H330 M240 214 H330 M550 128 C600 128,600 160,640 160 M550 214 C600 214,600 182,640 182 M800 171 H860" stroke="#D97757" stroke-width="3" fill="none"/>

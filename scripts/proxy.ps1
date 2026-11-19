@@ -1,5 +1,5 @@
-﻿# 用法： .\scripts\proxy.ps1 on 7890   |   .\scripts\proxy.ps1 off   |   .\scripts\proxy.ps1 status
-param([ValidateSet('on','off','status')][string]$Action = 'status', [int]$Port = 7890)
+﻿# 用法： .\scripts\proxy.ps1 on 7897   |   .\scripts\proxy.ps1 off   |   .\scripts\proxy.ps1 status
+param([ValidateSet('on','off','status')][string]$Action = 'status', [int]$Port = 7897)
 
 $names = 'HTTP_PROXY','HTTPS_PROXY','ALL_PROXY','NO_PROXY'
 

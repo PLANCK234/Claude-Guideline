@@ -76,8 +76,8 @@ claude          # 在仓库根目录启动，skill 会被自动加载
 | 脚本 | 作用 | 用法 |
 | :-- | :-- | :-- |
 | `stop-all-claude.bat` | 终止所有 Claude 进程（Windows） | 双击运行 |
-| `scripts/proxy.ps1` | Windows 永久代理开关 | `.\scripts\proxy.ps1 on 7890` / `off` |
-| `scripts/proxy.sh` | Bash / Zsh / WSL 永久代理开关 | `bash scripts/proxy.sh on 7890` / `off` |
+| `scripts/proxy.ps1` | Windows 永久代理开关 | `.\scripts\proxy.ps1 on 7897` / `off` |
+| `scripts/proxy.sh` | Bash / Zsh / WSL 永久代理开关 | `bash scripts/proxy.sh on 7897` / `off` |
 | `scripts/ipv6.ps1` | 禁用 / 恢复 IPv6 | `.\scripts\ipv6.ps1 off` / `on` |
 | `scripts/check.ps1` | 网络自检 | `.\scripts\check.ps1` |
 | `scripts/stop-all-claude.sh` | 终止所有 Claude 进程（Linux / macOS / WSL） | `bash scripts/stop-all-claude.sh` |

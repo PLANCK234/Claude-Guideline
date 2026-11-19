@@ -15,7 +15,7 @@ Set TypingSpeed 60ms
 
 Type "# ① 一行命令让终端永久走代理" Enter
 Sleep 600ms
-Type "bash scripts/proxy.sh on 7890" Sleep 400ms Enter
+Type "bash scripts/proxy.sh on 7897" Sleep 400ms Enter
 Sleep 1.5s
 Type "source ~/.bashrc && echo $HTTPS_PROXY" Sleep 400ms Enter
 Sleep 2s

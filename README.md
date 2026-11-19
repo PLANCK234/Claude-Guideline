@@ -11,6 +11,10 @@
 
 **在线阅读：[https://planck234.github.io/Claude-Guideline/](https://planck234.github.io/Claude-Guideline/)**
 
+<a href="https://planck234.github.io/Claude-Guideline/#__comments"><img src="docs/assets/helped-counter.svg" width="100%" alt="已帮助 1 人用上 Claude"></a>
+
+<sub>如果你通过本教程用上了 Claude，欢迎在 <a href="https://planck234.github.io/Claude-Guideline/#__comments">留言板</a> 分享你的经验，这里的数字会随之更新 ✨</sub>
+
 </div>
 
 ## 前言
@@ -41,15 +45,15 @@
 | 步骤 | Windows | macOS / Linux / WSL |
 | :-- | :-- | :-- |
 | 0. 调整代理前 | 先运行 `stop-all-claude.bat` 终止所有 Claude（[原因](docs/04-stop-claude.md#为什么要先终止所有进程)） | `bash scripts/stop-all-claude.sh` |
-| 1. 泄露检测 | [browserleaks.com/webrtc](https://browserleaks.com/webrtc) · [ipleak.net](https://ipleak.net) · [test-ipv6.com](https://test-ipv6.com) | 同左 |
+| 1. 泄露检测 | [ip.net.coffee](https://ip.net.coffee/) · [test-ipv6.com](https://test-ipv6.com) | 同左 |
 | 2. 禁用 IPv6 | [管理员运行](docs/01-network.md#windows) `.\scripts\ipv6.ps1 off` | [Linux / WSL](docs/01-network.md#linux--wsl) · [macOS](docs/01-network.md#macos) |
-| 3. 终端代理 | [PowerShell](docs/02-terminal-proxy.md#windows-终端) · [CMD](docs/02-terminal-proxy.md#windows-终端)：`.\scripts\proxy.ps1 on 7890` | [Bash / Zsh](docs/02-terminal-proxy.md#macos--linux) · [WSL](docs/02-terminal-proxy.md#wsl)：`bash scripts/proxy.sh on 7890` |
+| 3. 终端代理 | [PowerShell](docs/02-terminal-proxy.md#windows-终端) · [CMD](docs/02-terminal-proxy.md#windows-终端)：`.\scripts\proxy.ps1 on 7897` | [Bash / Zsh](docs/02-terminal-proxy.md#macos--linux) · [WSL](docs/02-terminal-proxy.md#wsl)：`bash scripts/proxy.sh on 7897` |
 | 4. 安装 | 官方桌面应用：[claude.ai/download](https://claude.ai/download)（[说明](docs/03-install-and-usage.md#方式一claude-桌面应用推荐)） | macOS 同左；Linux / WSL 使用[命令行版](docs/03-install-and-usage.md#方式三命令行版) |
 | 5. 自检 | `.\scripts\check.ps1` | `curl ipinfo.io && claude doctor` |
 | 6. 开始使用 | 桌面应用中打开 **Code** 标签页，选择项目文件夹 | 同左；命令行版执行 `cd <项目目录> && claude` |
 
 > [!TIP]
-> 将 `7890` 替换为代理客户端的 HTTP 端口。配置完成后需完全退出并重新打开终端或 VS Code。
+> `7897` 是 Clash Verge Rev 的默认混合端口，请替换为你的代理客户端端口。配置完成后需完全退出并重新打开终端或 VS Code。
 
 ## 演示
 
@@ -68,8 +72,8 @@
 | 脚本 | 作用 | 用法 |
 | :-- | :-- | :-- |
 | [`stop-all-claude.bat`](stop-all-claude.bat) | 终止所有 Claude 进程（Windows） | 双击运行 |
-| [`scripts/proxy.ps1`](scripts/proxy.ps1) | Windows 永久代理开关 | `.\scripts\proxy.ps1 on 7890` / `off` |
-| [`scripts/proxy.sh`](scripts/proxy.sh) | Bash / Zsh / WSL 永久代理开关 | `bash scripts/proxy.sh on 7890` / `off` |
+| [`scripts/proxy.ps1`](scripts/proxy.ps1) | Windows 永久代理开关 | `.\scripts\proxy.ps1 on 7897` / `off` |
+| [`scripts/proxy.sh`](scripts/proxy.sh) | Bash / Zsh / WSL 永久代理开关 | `bash scripts/proxy.sh on 7897` / `off` |
 | [`scripts/ipv6.ps1`](scripts/ipv6.ps1) | 禁用 / 恢复 IPv6 | `.\scripts\ipv6.ps1 off` / `on` |
 | [`scripts/check.ps1`](scripts/check.ps1) | 网络自检 | `.\scripts\check.ps1` |
 | [`scripts/stop-all-claude.sh`](scripts/stop-all-claude.sh) | 终止所有 Claude 进程（Linux / macOS / WSL） | `bash scripts/stop-all-claude.sh` |

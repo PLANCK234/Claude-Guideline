@@ -33,7 +33,7 @@
 5. 输入任务，按 `Enter` 发送。
 
 > [!NOTE]
-> 桌面应用通过系统网络联网，建议在代理客户端中开启 **TUN 模式**（见 [01 章](01-network.md#1-代理选择)）。如果 Code 会话仍然连不上，按 [02 章 · Claude Code 专用配置](02-terminal-proxy.md#claude-code-专用配置) 补充代理设置。
+> 桌面应用通过系统网络联网，请在代理客户端中打开 **系统代理** 并选择 **规则模式**（见 [01 章](01-network.md#1-代理选择)）。如果 Code 会话仍然连不上，按 [02 章 · Claude Code 专用配置](02-terminal-proxy.md#claude-code-专用配置) 补充代理设置。
 >
 > 部分功能（如并行会话隔离）需要 Git：Windows 用户可安装 [Git for Windows](https://git-scm.com/downloads/win)；macOS 一般自带，可在终端执行 `git --version` 确认。
 

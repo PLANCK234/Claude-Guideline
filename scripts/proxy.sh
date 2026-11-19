@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 用法： bash scripts/proxy.sh on 7890   |   bash scripts/proxy.sh off
+# 用法： bash scripts/proxy.sh on 7897   |   bash scripts/proxy.sh off
 # 写入 ~/.bashrc 与 ~/.zshrc（如存在），永久生效；执行后 source 配置文件或重开终端。
 # WSL：每次打开终端时自动判断，127.0.0.1 可用则使用（镜像网络），否则使用 Windows 主机 IP（NAT）。
 
@@ -15,7 +15,7 @@ strip() {
 
 case "${1:-}" in
   on)
-    port="${2:-7890}"
+    port="${2:-7897}"
     if ! [[ "$port" =~ ^[0-9]+$ ]] || (( port < 1 || port > 65535 )); then
       echo "端口无效：$port" >&2; exit 2
     fi

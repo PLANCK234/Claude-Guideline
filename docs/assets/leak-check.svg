@@ -51,5 +51,5 @@
     <text x="550" y="298">DNS 请求发给本地运营商</text>
     <text x="550" y="360">IPv6 流量不经过代理</text>
   </g>
-  <text x="550" y="424" text-anchor="middle" font-size="15" fill="#a89a8f">解决方法见本章第 4、5 节：关闭 WebRTC 泄露、禁用 IPv6，并开启代理客户端的 TUN 模式</text>
+  <text x="550" y="424" text-anchor="middle" font-size="15" fill="#a89a8f">解决方法见本章第 4、5 节：关闭 WebRTC 泄露、禁用 IPv6；DNS 提示在规则模式下属正常，见第 3 节结果示例</text>
 </svg>
