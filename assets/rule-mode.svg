@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="444" viewBox="0 0 1000 444">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .flow{stroke-dasharray:7 6;animation:f 1s linear infinite}
+      @keyframes f{to{stroke-dashoffset:-13}}
+    </style>
+  </defs>
+  <rect width="1000" height="444" rx="20" fill="#FBF6F1"/>
+  <text x="40" y="46" font-size="22" font-weight="700" fill="#3d2418">规则模式：该走代理的走代理，其余直连</text>
+  <text x="40" y="72" font-size="15" fill="#7a6458">Clash 按规则从上到下匹配，命中第一条就停止；内网与国内网站直连，Claude 等境外服务走固定节点</text>
+
+  <g transform="translate(0,24)">
+  <!-- 电脑 -->
+  <rect x="40" y="150" width="170" height="150" rx="14" fill="#fff" stroke="#E8A87C"/>
+  <text x="125" y="182" text-anchor="middle" font-size="17" font-weight="700" fill="#3d2418">你的电脑</text>
+  <text x="125" y="218" text-anchor="middle" font-size="14" fill="#5a4034">浏览器 · 桌面应用</text>
+  <text x="125" y="240" text-anchor="middle" font-size="12" fill="#7a6458">（系统代理）</text>
+  <text x="125" y="268" text-anchor="middle" font-size="14" fill="#5a4034">终端 · Claude Code</text>
+  <text x="125" y="288" text-anchor="middle" font-size="12" fill="#7a6458">（HTTPS_PROXY）</text>
+
+  <!-- Clash -->
+  <rect x="290" y="120" width="290" height="210" rx="14" fill="#D97757"/>
+  <text x="435" y="150" text-anchor="middle" font-size="17" font-weight="700" fill="#fff">Clash · 规则模式</text>
+  <text x="435" y="172" text-anchor="middle" font-size="13" fill="#FBE3D6">127.0.0.1:7897</text>
+  <g font-family="JetBrains Mono,Consolas,monospace" font-size="12.5">
+    <rect x="306" y="186" width="258" height="26" rx="6" fill="#fff" fill-opacity=".92"/><text x="316" y="204" fill="#2e7d32">DOMAIN-SUFFIX,xx.edu.cn,DIRECT</text>
+    <rect x="306" y="218" width="258" height="26" rx="6" fill="#fff" fill-opacity=".92"/><text x="316" y="236" fill="#2e7d32">IP-CIDR,10.0.0.0/8,DIRECT</text>
+    <rect x="306" y="250" width="258" height="26" rx="6" fill="#fff" fill-opacity=".92"/><text x="316" y="268" fill="#2e7d32">GEOIP,CN,DIRECT</text>
+    <rect x="306" y="282" width="258" height="26" rx="6" fill="#fff" fill-opacity=".92"/><text x="316" y="300" fill="#b4533a">MATCH,节点选择</text>
+  </g>
+
+  <!-- 目的地 -->
+  <g font-size="15">
+    <rect x="680" y="112" width="280" height="56" rx="12" fill="#E3F1E4" stroke="#7fb784"/>
+    <text x="700" y="137" font-weight="700" fill="#2e5e33">校园内网</text><text x="700" y="157" font-size="13" fill="#4f7a53">选课 / 图书馆 / 门户，直连</text>
+    <rect x="680" y="196" width="280" height="56" rx="12" fill="#E3F1E4" stroke="#7fb784"/>
+    <text x="700" y="221" font-weight="700" fill="#2e5e33">国内网站</text><text x="700" y="241" font-size="13" fill="#4f7a53">淘宝 / 微信 / B 站，直连</text>
+    <rect x="680" y="280" width="280" height="56" rx="12" fill="#3d2418"/>
+    <text x="700" y="305" font-weight="700" fill="#fff">Claude · GitHub · Google</text><text x="700" y="325" font-size="13" fill="#e9d6c8">经固定节点（如日本）出口</text>
+  </g>
+
+  <path class="flow" d="M210 225 H290" stroke="#D97757" stroke-width="3" fill="none"/>
+  <g stroke-width="3" fill="none">
+    <path class="flow" d="M564 199 C620 199,630 140,680 140" stroke="#5e9e64"/>
+    <path class="flow" d="M564 231 C625 231,630 146,680 146" stroke="#5e9e64"/>
+    <path class="flow" d="M564 263 C620 263,640 224,680 224" stroke="#5e9e64"/>
+    <path class="flow" d="M564 295 C620 295,640 308,680 308" stroke="#3d2418"/>
+  </g>
+
+  <!-- 绕过 -->
+  <path class="flow" d="M125 150 C125 96, 260 96, 435 96 S 820 96, 820 112" stroke="#7a6458" stroke-width="2" fill="none"/>
+  <text x="435" y="90" text-anchor="middle" font-size="13" fill="#7a6458">代理绕过 / NO_PROXY：根本不进 Clash，直接连接（适合校园网认证、内网 VPN 等）</text>
+
+  <text x="500" y="378" text-anchor="middle" font-size="14" fill="#b4533a">两种办法都能让内网不走代理：在 Clash 中加 DIRECT 规则，或在系统代理绕过列表中加入域名</text>
+  <text x="500" y="400" text-anchor="middle" font-size="13" fill="#7a6458">规则示例中的 xx.edu.cn 请换成你学校的域名</text>
+  </g>
+</svg>

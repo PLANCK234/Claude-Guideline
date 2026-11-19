@@ -440,6 +440,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. 代理选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#规则模式是怎么分流的" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        规则模式是怎么分流的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#让某些网站不走代理如校园内网" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让某些网站不走代理（如校园内网）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -461,6 +489,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. 检测网站">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#结果示例" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1357,6 +1402,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="1. 代理选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#规则模式是怎么分流的" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        规则模式是怎么分流的
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#让某些网站不走代理如校园内网" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        让某些网站不走代理（如校园内网）
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1378,6 +1451,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. 检测网站">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#结果示例" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1502,13 +1592,37 @@
 </tr>
 <tr>
 <td style="text-align: left;">客户端模式</td>
-<td style="text-align: left;">建议启用 <strong>TUN 模式</strong>，接管全部流量，覆盖面优于“系统代理”</td>
+<td style="text-align: left;">打开 <strong>系统代理</strong>，代理模式选 <strong>规则（Rule）</strong> 即可；不要用“全局”</td>
 </tr>
 </tbody>
 </table>
+<p><img alt="在 Clash Verge Rev 中找到代理端口" src="../assets/clash-port.svg" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>请记录代理客户端的 <strong>HTTP / Mixed 端口</strong>（Clash 系默认 <code>7890</code>，v2rayN 默认 <code>10808/10809</code>），第 02 章会用到。</p>
+<p>请记录代理客户端的 <strong>混合代理（Mixed）端口</strong>：Clash Verge Rev / Mihomo 默认 <code>7897</code>（旧版 Clash for Windows 为 <code>7890</code>），v2rayN 默认 <code>10808/10809</code>。第 02 章会用到。</p>
+</div>
+<h3 id="规则模式是怎么分流的">规则模式是怎么分流的<a class="headerlink" href="#规则模式是怎么分流的" title="Permanent link">&para;</a></h3>
+<p><img alt="规则模式分流示意" src="../assets/rule-mode.svg" /></p>
+<p>规则模式下，Clash 按订阅自带的规则逐条匹配：国内网站、局域网地址直连，Claude、GitHub 等境外服务走你固定的节点。这样国内网站不绕路，Claude 的出口 IP 又保持稳定。</p>
+<h3 id="让某些网站不走代理如校园内网">让某些网站不走代理（如校园内网）<a class="headerlink" href="#让某些网站不走代理如校园内网" title="Permanent link">&para;</a></h3>
+<p>校园网的选课系统、图书馆数据库、统一认证门户等，通常只允许校内 IP 访问，走了代理就会打不开。有两种办法，<strong>推荐两者都做</strong>：</p>
+<p><strong>办法一：在 Clash 中添加直连规则</strong>（影响所有经过 Clash 的流量，包括终端）</p>
+<p>Clash Verge Rev：<strong>订阅</strong> → 右键当前订阅 → <strong>编辑规则</strong>，在“前置规则”中添加；或点 <strong>编辑文件</strong>（Merge / 扩展配置）写入：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">prepend-rules</span><span class="p">:</span><span class="w">                                   </span><span class="c1"># 前置规则，优先于订阅自带规则</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DOMAIN-SUFFIX,xxx.edu.cn,DIRECT</span><span class="w">              </span><span class="c1"># 把 xxx.edu.cn 换成你学校的域名</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DOMAIN-SUFFIX,cnki.net,DIRECT</span><span class="w">                </span><span class="c1"># 其他需要校内 IP 的站点，如知网</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IP-CIDR,10.0.0.0/8,DIRECT,no-resolve</span><span class="w">         </span><span class="c1"># 校园内网常见网段</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">IP-CIDR,172.16.0.0/12,DIRECT,no-resolve</span>
+</code></pre></div>
+<p>保存后在 <strong>连接</strong> 页面打开对应网站，确认规则一栏显示 <code>DIRECT</code>。</p>
+<p><strong>办法二：加入系统代理绕过列表</strong>（流量完全不进 Clash，适合校园网登录页、校内 VPN 客户端）</p>
+<ul>
+<li>Clash Verge Rev：<strong>设置 → 系统代理 → 代理绕过</strong>，在已有内容末尾追加 <code>;*.xxx.edu.cn</code>（Windows 用分号分隔）。</li>
+<li>终端：在 <code>NO_PROXY</code> 中追加域名，例如 <code>localhost,127.0.0.1,::1,.xxx.edu.cn</code>，设置方法见 <a href="../02-terminal-proxy/#不走代理的地址no_proxy">02 章</a>。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>改完后需要关闭再重新打开浏览器标签页（已建立的连接不会立即切换）。修改任何代理配置前，记得先按 <a href="../04-stop-claude/">04 章</a> 终止 Claude。</p>
 </div>
 <hr />
 <h2 id="2-泄露的含义">2. 泄露的含义<a class="headerlink" href="#2-泄露的含义" title="Permanent link">&para;</a></h2>
@@ -1516,56 +1630,57 @@
 <p>系统代理通常只接管部分流量。<strong>WebRTC（UDP）、DNS 与 IPv6</strong> 是最常见的绕过路径，会使网站获取到本机真实 IP。</p>
 <hr />
 <h2 id="3-检测网站">3. 检测网站<a class="headerlink" href="#3-检测网站" title="Permanent link">&para;</a></h2>
+<p>除 IPv6 外，所有检测都可以在 <strong><a href="https://ip.net.coffee/">ip.net.coffee</a></strong> 一个站点内完成，从顶部菜单进入对应页面：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">网站</th>
-<th style="text-align: left;">检测内容</th>
+<th style="text-align: left;">检测项</th>
+<th style="text-align: left;">位置</th>
 <th style="text-align: left;">正常结果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong><a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a></strong></td>
-<td style="text-align: left;"><strong>WebRTC 专项检测</strong></td>
-<td style="text-align: left;">公网 IP 仅显示代理 IP，或显示 <code>n/a</code></td>
+<td style="text-align: left;">我的 IP 查询</td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">分流出口中出现你固定的节点；国内站点直连属正常</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://browserleaks.com/ip">browserleaks.com/ip</a></td>
-<td style="text-align: left;">浏览器出口 IP</td>
-<td style="text-align: left;">为代理 IP</td>
+<td style="text-align: left;"><strong>Claude AI IP 风险检测</strong></td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">Claude 出口为固定节点，支持地区“正常”，无滥用记录</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://ipleak.net">ipleak.net</a></td>
-<td style="text-align: left;">IP、DNS、WebRTC 综合检测</td>
-<td style="text-align: left;">未出现本地运营商</td>
+<td style="text-align: left;">IP 评分查询</td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">仅供参考，机房 IP 显示“代理 / Hosting”是常态</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://www.dnsleaktest.com">dnsleaktest.com</a></td>
-<td style="text-align: left;">DNS 泄露（选择 Extended test）</td>
-<td style="text-align: left;">未出现本地运营商 DNS</td>
+<td style="text-align: left;"><strong>WebRTC 泄露检测</strong></td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">“已禁用或未暴露，没有泄露”</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://test-ipv6.com">test-ipv6.com</a></td>
+<td style="text-align: left;">DNS 泄露检测</td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">规则模式下可能提示“中国 DNS”，原因见下方结果示例</td>
+</tr>
+<tr>
 <td style="text-align: left;">IPv6 连通性</td>
+<td style="text-align: left;"><a href="https://test-ipv6.com">test-ipv6.com</a></td>
 <td style="text-align: left;">无 IPv6，或 IPv6 同样经由代理</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="https://whoer.net">whoer.net</a></td>
-<td style="text-align: left;">综合评分</td>
-<td style="text-align: left;">关注具体扣分项</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a href="https://ping0.cc">ping0.cc</a></td>
-<td style="text-align: left;">IP 类型与风险值</td>
-<td style="text-align: left;">仅供参考</td>
 </tr>
 </tbody>
 </table>
 <p><strong>终端出口 IP 检测：</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>ipinfo.io<span class="w">        </span><span class="c1"># Bash / WSL / macOS</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>curl.exe<span class="w"> </span>ipinfo.io<span class="w">    </span><span class="c1"># PowerShell（需带 .exe）</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>ipinfo.io<span class="w">        </span><span class="c1"># Bash / WSL / macOS</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl.exe<span class="w"> </span>ipinfo.io<span class="w">    </span><span class="c1"># PowerShell（需带 .exe）</span>
 </code></pre></div>
+<h3 id="结果示例">结果示例<a class="headerlink" href="#结果示例" title="Permanent link">&para;</a></h3>
+<p>以下是作者<strong>正在使用、可以正常使用 Claude</strong> 的一套配置（规则模式 + 日本固定机房节点 + 已关闭 WebRTC）的检测结果，重绘并隐去了 IP。可以看到，它并不是“满分”：评分只有 53、被识别为代理 / 机房 IP、DNS 还提示可能泄露，但这些都<strong>不影响使用</strong>。不必追求每一项都变绿：</p>
+<p><img alt="我的 IP 查询结果示例" src="../assets/ip-split.svg" /></p>
+<p><img alt="Claude AI IP 风险检测结果示例" src="../assets/claude-ip-check.svg" /></p>
+<p><strong>关于 DNS“可能泄露”：</strong> 规则模式下，Clash 为了判断一个域名该不该走代理，会用本地 DNS 先解析它，DNS 检测站因此看到中国 DNS 服务器。这并不会改变 Claude 看到的出口 IP。WebRTC 才是会直接暴露真实 IP 的那一项，务必按第 4 节关闭。</p>
 <hr />
 <h2 id="4-禁用-webrtc-泄露">4. 禁用 WebRTC 泄露<a class="headerlink" href="#4-禁用-webrtc-泄露" title="Permanent link">&para;</a></h2>
 <details open="open">
@@ -1575,7 +1690,7 @@
 <details>
 <summary><b>Chrome / Edge</b></summary>
 <p>安装 <strong><a href="https://chromewebstore.google.com/search/WebRTC%20Leak%20Prevent">WebRTC Leak Prevent</a></strong>，或在 <strong>uBlock Origin</strong> 设置中勾选“防止 WebRTC 泄露本地 IP”。
-完成后在 <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 复测。</p>
+完成后在 <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 WebRTC 泄露检测中复测。</p>
 </details>
 <details>
 <summary><b>Safari / iPad</b></summary>
@@ -1607,21 +1722,18 @@
 </table>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
 <p>以<strong>管理员身份</strong>运行 PowerShell，两步均需执行：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c"># 1. 在所有网卡上取消 IPv6 绑定</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Get-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span> <span class="p">|</span> <span class="nb">Disable-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c"># 2. 通过注册表全局禁用（0xFF），重启后生效</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s1">'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'</span> <span class="p">`</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>  <span class="n">-Name</span> <span class="n">DisabledComponents</span> <span class="n">-PropertyType</span> <span class="n">DWord</span> <span class="n">-Value</span> <span class="n">0xFF</span> <span class="n">-Force</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="nb">Restart-Computer</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># 1. 在所有网卡上取消 IPv6 绑定</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">Get-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span> <span class="p">|</span> <span class="nb">Disable-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c"># 2. 通过注册表全局禁用（0xFF），重启后生效</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nb">New-ItemProperty</span> <span class="n">-Path</span> <span class="s1">'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'</span> <span class="p">`</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  <span class="n">-Name</span> <span class="n">DisabledComponents</span> <span class="n">-PropertyType</span> <span class="n">DWord</span> <span class="n">-Value</span> <span class="n">0xFF</span> <span class="n">-Force</span>
 </code></pre></div>
 <p>也可使用仓库脚本：<code>.\scripts\ipv6.ps1 off</code>（恢复：<code>.\scripts\ipv6.ps1 on</code>）</p>
 <details>
 <summary>手动恢复 IPv6</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">Get-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span> <span class="p">|</span> <span class="nb">Enable-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">Remove-ItemProperty</span> <span class="n">-Path</span> <span class="s1">'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'</span> <span class="n">-Name</span> <span class="n">DisabledComponents</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">Restart-Computer</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">Get-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span> <span class="p">|</span> <span class="nb">Enable-NetAdapterBinding</span> <span class="n">-ComponentID</span> <span class="n">ms_tcpip6</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Remove-ItemProperty</span> <span class="n">-Path</span> <span class="s1">'HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters'</span> <span class="n">-Name</span> <span class="n">DisabledComponents</span>
 </code></pre></div>
 </details>
 <div class="admonition note">
@@ -1629,30 +1741,31 @@
 <p>禁用后 <code>ping ::1</code> 仍可成功属正常现象（本机回环）。以 <a href="https://test-ipv6.com">test-ipv6.com</a> 显示无 IPv6 为准。</p>
 </div>
 <h3 id="linux--wsl">Linux / WSL<a class="headerlink" href="#linux--wsl" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/sysctl.d/99-disable-ipv6.conf<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s">net.ipv6.conf.all.disable_ipv6 = 1</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s">net.ipv6.conf.default.disable_ipv6 = 1</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s">net.ipv6.conf.lo.disable_ipv6 = 1</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="s">EOF</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>--system
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/sysctl.d/99-disable-ipv6.conf<span class="w"> </span>&gt;/dev/null<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="s">net.ipv6.conf.all.disable_ipv6 = 1</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="s">net.ipv6.conf.default.disable_ipv6 = 1</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="s">net.ipv6.conf.lo.disable_ipv6 = 1</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s">EOF</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>sudo<span class="w"> </span>sysctl<span class="w"> </span>--system
 </code></pre></div>
 <p>WSL 也可在 Windows 的 <code>%USERPROFILE%\.wslconfig</code> 中添加：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">[wsl2]</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="na">kernelCommandLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ipv6.disable=1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">[wsl2]</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="na">kernelCommandLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ipv6.disable=1</span>
 </code></pre></div>
 <p>随后执行 <code>wsl --shutdown</code> 并重新打开。</p>
 <h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>networksetup<span class="w"> </span>-listallnetworkservices<span class="w">          </span><span class="c1"># 查看网络服务名称</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>networksetup<span class="w"> </span>-setv6off<span class="w"> </span><span class="s2">"Wi-Fi"</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>networksetup<span class="w"> </span>-setv6off<span class="w"> </span><span class="s2">"Ethernet"</span><span class="w">             </span><span class="c1"># 如有有线网卡，一并关闭</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># 恢复：networksetup -setv6automatic "Wi-Fi"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>networksetup<span class="w"> </span>-listallnetworkservices<span class="w">          </span><span class="c1"># 查看网络服务名称</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>networksetup<span class="w"> </span>-setv6off<span class="w"> </span><span class="s2">"Wi-Fi"</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>networksetup<span class="w"> </span>-setv6off<span class="w"> </span><span class="s2">"Ethernet"</span><span class="w">             </span><span class="c1"># 如有有线网卡，一并关闭</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># 恢复：networksetup -setv6automatic "Wi-Fi"</span>
 </code></pre></div>
 <hr />
 <h2 id="检查清单">检查清单<a class="headerlink" href="#检查清单" title="Permanent link">&para;</a></h2>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 代理客户端已启用 TUN 模式，并记录 HTTP 端口</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 仅显示代理 IP</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://www.dnsleaktest.com">dnsleaktest.com</a> 未出现本地运营商</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 代理客户端已开启系统代理、选择规则模式，并记下混合端口（如 <code>7897</code>）</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 校园内网等站点已加入直连规则 / 代理绕过（如有需要）</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 Claude AI 出口为固定节点，支持地区正常</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 WebRTC 检测显示无泄露</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://test-ipv6.com">test-ipv6.com</a> 显示无 IPv6</li>
 </ul>
 <p><strong><a href="../02-terminal-proxy/">下一章：终端代理配置 →</a></strong></p>

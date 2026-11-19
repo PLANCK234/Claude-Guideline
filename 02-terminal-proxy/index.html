@@ -665,6 +665,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#不走代理的地址no_proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不走代理的地址（NO_PROXY）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#常见问题" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1665,6 +1676,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#不走代理的地址no_proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不走代理的地址（NO_PROXY）
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#常见问题" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1705,7 +1727,8 @@
 <p>浏览器走的是系统代理，而终端里的程序（包括 Claude Code）只读取 <code>HTTP_PROXY</code> / <code>HTTPS_PROXY</code> 环境变量。因此即使浏览器能正常访问，终端也需要单独配置。</p>
 <p>本章为每种终端给出 <strong>生效范围 → 配置步骤 → 验证 → 撤销</strong> 四个部分，按自己使用的终端阅读即可。</p>
 <h2 id="开始之前确认代理端口">开始之前：确认代理端口<a class="headerlink" href="#开始之前确认代理端口" title="Permanent link">&para;</a></h2>
-<p>打开代理客户端的设置，找到 <strong>HTTP 端口</strong> 或 <strong>Mixed（混合）端口</strong>，下文统一以 <code>7890</code> 为例，请替换为你自己的端口。</p>
+<p>打开代理客户端的设置，找到 <strong>HTTP 端口</strong> 或 <strong>Mixed（混合）端口</strong>，下文统一以 Clash Verge Rev 的默认端口 <code>7897</code> 为例，请替换为你自己的端口。</p>
+<p><img alt="在 Clash Verge Rev 中找到代理端口" src="../assets/clash-port.svg" /></p>
 <table>
 <thead>
 <tr>
@@ -1715,7 +1738,11 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">Clash Verge / Clash for Windows / Mihomo</td>
+<td style="text-align: left;">Clash Verge Rev / Mihomo Party</td>
+<td style="text-align: left;"><code>7897</code>（混合端口，见首页“Clash 信息”卡片）</td>
+</tr>
+<tr>
+<td style="text-align: left;">Clash for Windows（旧版）</td>
 <td style="text-align: left;"><code>7890</code>（Mixed）</td>
 </tr>
 <tr>
@@ -1769,27 +1796,27 @@
 <p><strong>生效范围：</strong> 写入 Windows <strong>用户环境变量</strong>后，之后新打开的 PowerShell、CMD、Git Bash、Windows Terminal、VS Code 都会自动继承，无需分别配置。已经打开的窗口不会更新，WSL 也不受影响。</p>
 <h3 id="配置步骤">配置步骤<a class="headerlink" href="#配置步骤" title="Permanent link">&para;</a></h3>
 <p><strong>方式一：脚本</strong>（在仓库根目录的 PowerShell 中执行）</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">proxy</span><span class="p">.</span><span class="n">ps1</span> <span class="n">on</span> <span class="n">7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">.\</span><span class="n">scripts</span><span class="p">\</span><span class="n">proxy</span><span class="p">.</span><span class="n">ps1</span> <span class="n">on</span> <span class="n">7897</span>
 </code></pre></div>
 <p><strong>方式二：手动</strong>（PowerShell 中逐行执行，无需管理员权限）</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$p</span> <span class="p">=</span> <span class="s1">'http://127.0.0.1:7890'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">$p</span> <span class="p">=</span> <span class="s1">'http://127.0.0.1:7897'</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'HTTP_PROXY'</span><span class="p">,</span>  <span class="nv">$p</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'HTTPS_PROXY'</span><span class="p">,</span> <span class="nv">$p</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'ALL_PROXY'</span><span class="p">,</span>   <span class="nv">$p</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'NO_PROXY'</span><span class="p">,</span> <span class="s1">'localhost,127.0.0.1,::1'</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
 </code></pre></div>
 <p>如果习惯用 CMD，以下命令效果相同：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>setx HTTP_PROXY  http://127.0.0.1:7890
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>setx HTTPS_PROXY http://127.0.0.1:7890
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>setx ALL_PROXY   http://127.0.0.1:7890
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>setx HTTP_PROXY  http://127.0.0.1:7897
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>setx HTTPS_PROXY http://127.0.0.1:7897
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>setx ALL_PROXY   http://127.0.0.1:7897
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>setx NO_PROXY    localhost,127.0.0.1,::1
 </code></pre></div>
 <p><strong>方式三：图形界面</strong></p>
-<p><code>Win + R</code> 输入 <code>rundll32 sysdm.cpl,EditEnvironmentVariables</code> → 在“用户变量”中新建 <code>HTTP_PROXY</code>、<code>HTTPS_PROXY</code>，值均为 <code>http://127.0.0.1:7890</code>。</p>
+<p><code>Win + R</code> 输入 <code>rundll32 sysdm.cpl,EditEnvironmentVariables</code> → 在“用户变量”中新建 <code>HTTP_PROXY</code>、<code>HTTPS_PROXY</code>，值均为 <code>http://127.0.0.1:7897</code>。</p>
 <p><strong>最后一步（必做）：</strong> 关闭<strong>所有</strong> PowerShell、CMD、Windows Terminal 与 VS Code 窗口（VS Code 需完全退出，而不是只关闭终端面板），再重新打开。</p>
 <h3 id="验证">验证<a class="headerlink" href="#验证" title="Permanent link">&para;</a></h3>
 <p>PowerShell：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">$env:HTTPS_PROXY</span>          <span class="c"># 应输出 http://127.0.0.1:7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nv">$env:HTTPS_PROXY</span>          <span class="c"># 应输出 http://127.0.0.1:7897</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">curl</span><span class="p">.</span><span class="n">exe</span> <span class="n">ipinfo</span><span class="p">.</span><span class="n">io</span>        <span class="c"># 应显示代理节点的 IP（注意要带 .exe）</span>
 </code></pre></div>
 <p>CMD 中使用 <code>echo %HTTPS_PROXY%</code> 与 <code>curl ipinfo.io</code>；Git Bash 中使用 <code>echo $HTTPS_PROXY</code> 与 <code>curl ipinfo.io</code>。</p>
@@ -1805,10 +1832,10 @@
 <details>
 <summary>附：让 Git 与 npm 也走代理</summary>
 <p>Git 与 npm 通常会读取上面的环境变量。如果仍然不生效，可单独配置：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">http</span><span class="p">.</span><span class="n">proxy</span>  <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">https</span><span class="p">.</span><span class="n">proxy</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">npm</span> <span class="n">config</span> <span class="nb">set </span><span class="n">proxy</span>       <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">npm</span> <span class="n">config</span> <span class="nb">set </span><span class="n">https-proxy</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">http</span><span class="p">.</span><span class="n">proxy</span>  <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7897</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">git</span> <span class="n">config</span> <span class="p">-</span><span class="n">-global</span> <span class="n">https</span><span class="p">.</span><span class="n">proxy</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7897</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">npm</span> <span class="n">config</span> <span class="nb">set </span><span class="n">proxy</span>       <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7897</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">npm</span> <span class="n">config</span> <span class="nb">set </span><span class="n">https-proxy</span> <span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7897</span>
 </code></pre></div>
 <p>撤销：<code>git config --global --unset http.proxy</code>、<code>git config --global --unset https.proxy</code>、<code>npm config delete proxy</code>、<code>npm config delete https-proxy</code>。</p>
 </details>
@@ -1864,14 +1891,14 @@
 </table>
 <h3 id="第-2-步写入配置">第 2 步：写入配置<a class="headerlink" href="#第-2-步写入配置" title="Permanent link">&para;</a></h3>
 <p><strong>方式一：脚本</strong>（在 WSL 中进入仓库目录执行）</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bash<span class="w"> </span>scripts/proxy.sh<span class="w"> </span>on<span class="w"> </span><span class="m">7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>bash<span class="w"> </span>scripts/proxy.sh<span class="w"> </span>on<span class="w"> </span><span class="m">7897</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div>
 <p><strong>方式二：手动</strong>，复制以下整段到 WSL 终端执行（会追加到 <code>~/.bashrc</code>；使用 zsh 的话把两处 <code>~/.bashrc</code> 改为 <code>~/.zshrc</code>）：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s"># &gt;&gt;&gt; claude-diy proxy &gt;&gt;&gt;</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">PROXY_PORT=7890</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s">PROXY_PORT=7897</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s">if timeout 1 bash -c "&lt;/dev/tcp/127.0.0.1/$PROXY_PORT" 2&gt;/dev/null; then</span>
 <a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s">  PROXY_HOST=127.0.0.1                                              # 镜像网络</span>
 <a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">else</span>
@@ -1886,13 +1913,13 @@
 <a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </code></pre></div>
 <h3 id="第-3-步验证">第 3 步：验证<a class="headerlink" href="#第-3-步验证" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HTTPS_PROXY</span><span class="w">       </span><span class="c1"># NAT 模式下形如 http://172.x.x.1:7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">echo</span><span class="w"> </span><span class="nv">$HTTPS_PROXY</span><span class="w">       </span><span class="c1"># NAT 模式下形如 http://172.x.x.1:7897</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>curl<span class="w"> </span>ipinfo.io<span class="w">          </span><span class="c1"># 应显示代理节点的 IP</span>
 </code></pre></div>
 <h3 id="连不上时放行-windows-防火墙">连不上时：放行 Windows 防火墙<a class="headerlink" href="#连不上时放行-windows-防火墙" title="Permanent link">&para;</a></h3>
 <p>如果 <code>curl</code> 超时，通常是 Windows 防火墙拦截了来自 WSL 的连接。以<strong>管理员身份</strong>打开 PowerShell，执行一次即可（只放行 WSL 所在的内网网段）：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">New-NetFirewallRule</span> <span class="n">-DisplayName</span> <span class="s2">"WSL to Proxy"</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="p">`</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-LocalPort</span> <span class="n">7890</span> <span class="n">-RemoteAddress</span> <span class="n">172</span><span class="p">.</span><span class="n">16</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">12</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-LocalPort</span> <span class="n">7897</span> <span class="n">-RemoteAddress</span> <span class="n">172</span><span class="p">.</span><span class="n">16</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">/</span><span class="n">12</span>
 </code></pre></div>
 <p>撤销：<code>Remove-NetFirewallRule -DisplayName "WSL to Proxy"</code></p>
 <p>仍然不行时，按顺序检查：</p>
@@ -1919,14 +1946,14 @@
 <p><strong>生效范围：</strong> 写入 shell 配置文件后，之后每次打开的终端都会生效。macOS 默认使用 zsh（<code>~/.zshrc</code>），大多数 Linux 默认使用 bash（<code>~/.bashrc</code>）。不确定时执行 <code>echo $SHELL</code> 查看。</p>
 <h3 id="配置步骤_1">配置步骤<a class="headerlink" href="#配置步骤_1" title="Permanent link">&para;</a></h3>
 <p><strong>方式一：脚本</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>bash<span class="w"> </span>scripts/proxy.sh<span class="w"> </span>on<span class="w"> </span><span class="m">7890</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>bash<span class="w"> </span>scripts/proxy.sh<span class="w"> </span>on<span class="w"> </span><span class="m">7897</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc<span class="w">        </span><span class="c1"># bash 用户改为 source ~/.bashrc</span>
 </code></pre></div>
 <p><strong>方式二：手动</strong>（zsh 用户将两处 <code>~/.bashrc</code> 改为 <code>~/.zshrc</code>）</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>cat<span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
 <a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="s"># &gt;&gt;&gt; claude-diy proxy &gt;&gt;&gt;</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s">export HTTP_PROXY=http://127.0.0.1:7890</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s">export HTTP_PROXY=http://127.0.0.1:7897</span>
 <a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="s">export HTTPS_PROXY="$HTTP_PROXY" ALL_PROXY="$HTTP_PROXY"</span>
 <a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="s">export http_proxy="$HTTP_PROXY" https_proxy="$HTTP_PROXY" all_proxy="$HTTP_PROXY"</span>
 <a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="s">export NO_PROXY=localhost,127.0.0.1,::1 no_proxy=localhost,127.0.0.1,::1</span>
@@ -1966,13 +1993,27 @@
 </table>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="p">{</span>
 <a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">  </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nt">"HTTP_PROXY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:7890"</span><span class="p">,</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">"HTTPS_PROXY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:7890"</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">    </span><span class="nt">"HTTP_PROXY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:7897"</span><span class="p">,</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="nt">"HTTPS_PROXY"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://127.0.0.1:7897"</span>
 <a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="p">}</span>
 </code></pre></div>
 <p>如果文件中已有其他配置，只需把 <code>env</code> 一项合并进去。WSL 在 NAT 模式下这里不能写 <code>127.0.0.1</code>，请优先使用上面的 <a href="#wsl">WSL 通用方法</a>。</p>
 <p><strong>验证：</strong> 重新启动 <code>claude</code>，能正常对话即配置成功；也可以运行 <code>claude doctor</code> 查看。</p>
+<hr />
+<h2 id="不走代理的地址no_proxy">不走代理的地址（NO_PROXY）<a class="headerlink" href="#不走代理的地址no_proxy" title="Permanent link">&para;</a></h2>
+<p><code>NO_PROXY</code> 中列出的地址，终端程序（curl、git、npm、Claude Code 等）会直接连接，不经过代理。脚本默认写入 <code>localhost,127.0.0.1,::1</code>。如果需要在终端里访问校园内网，把学校域名追加进去，以英文逗号分隔，域名前加 <code>.</code> 表示包含所有子域名：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c"># Windows（PowerShell）</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">'NO_PROXY'</span><span class="p">,</span> <span class="s1">'localhost,127.0.0.1,::1,.xxx.edu.cn'</span><span class="p">,</span> <span class="s1">'User'</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># WSL / macOS / Linux：修改 ~/.bashrc 或 ~/.zshrc 中 claude-diy 标记内的这一行</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">NO_PROXY</span><span class="o">=</span>localhost,127.0.0.1,::1,.xxx.edu.cn<span class="w"> </span><span class="nv">no_proxy</span><span class="o">=</span>localhost,127.0.0.1,::1,.xxx.edu.cn
+</code></pre></div>
+<p>改完同样需要重开终端。浏览器的绕过设置与 Clash 直连规则见 <a href="../01-network/#让某些网站不走代理如校园内网">01 章 · 让某些网站不走代理</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>即使不改 <code>NO_PROXY</code>，只要 Clash 中已添加了对应的 <code>DIRECT</code> 规则，终端访问内网也会由 Clash 直连转发。<code>NO_PROXY</code> 适合连 Clash 都不该经过的情况，例如校园网认证。</p>
+</div>
 <hr />
 <h2 id="常见问题">常见问题<a class="headerlink" href="#常见问题" title="Permanent link">&para;</a></h2>
 <table>
