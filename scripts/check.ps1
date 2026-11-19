@@ -17,4 +17,4 @@ $code = curl.exe -s -o NUL -w '%{http_code}' --max-time 10 https://api.anthropic
 if ($code -ne '000') { Write-Host "  ✓ 可连通 (HTTP $code)" -ForegroundColor Green }
 else { Write-Host '  ✗ 连不上，检查代理端口' -ForegroundColor Red }
 
-Write-Host "`n浏览器端请再打开 https://ip.net.coffee/ 检查 Claude 出口与 WebRTC`n"
+Write-Host "`n浏览器端请再打开 https://browserleaks.com/webrtc 检查 WebRTC`n"

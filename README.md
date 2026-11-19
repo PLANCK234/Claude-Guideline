@@ -45,7 +45,7 @@
 | 步骤 | Windows | macOS / Linux / WSL |
 | :-- | :-- | :-- |
 | 0. 调整代理前 | 先运行 `stop-all-claude.bat` 终止所有 Claude（[原因](docs/04-stop-claude.md#为什么要先终止所有进程)） | `bash scripts/stop-all-claude.sh` |
-| 1. 泄露检测 | [ip.net.coffee](https://ip.net.coffee/) · [test-ipv6.com](https://test-ipv6.com) | 同左 |
+| 1. 泄露检测 | [browserleaks.com/webrtc](https://browserleaks.com/webrtc) · [ipleak.net](https://ipleak.net) · [test-ipv6.com](https://test-ipv6.com) | 同左 |
 | 2. 禁用 IPv6 | [管理员运行](docs/01-network.md#windows) `.\scripts\ipv6.ps1 off` | [Linux / WSL](docs/01-network.md#linux--wsl) · [macOS](docs/01-network.md#macos) |
 | 3. 终端代理 | [PowerShell](docs/02-terminal-proxy.md#windows-终端) · [CMD](docs/02-terminal-proxy.md#windows-终端)：`.\scripts\proxy.ps1 on 7897` | [Bash / Zsh](docs/02-terminal-proxy.md#macos--linux) · [WSL](docs/02-terminal-proxy.md#wsl)：`bash scripts/proxy.sh on 7897` |
 | 4. 安装 | 官方桌面应用：[claude.ai/download](https://claude.ai/download)（[说明](docs/03-install-and-usage.md#方式一claude-桌面应用推荐)） | macOS 同左；Linux / WSL 使用[命令行版](docs/03-install-and-usage.md#方式三命令行版) |

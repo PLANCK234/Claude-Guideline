@@ -58,16 +58,15 @@ prepend-rules:                                   # 前置规则，优先于订�
 
 ## 3. 检测网站
 
-除 IPv6 外，所有检测都可以在 **[ip.net.coffee](https://ip.net.coffee/)** 一个站点内完成，从顶部菜单进入对应页面：
-
-| 检测项 | 位置 | 正常结果 |
+| 网站 | 检测内容 | 正常结果 |
 | :-- | :-- | :-- |
-| 我的 IP 查询 | [ip.net.coffee](https://ip.net.coffee/) | 分流出口中出现你固定的节点；国内站点直连属正常 |
-| **Claude AI IP 风险检测** | [ip.net.coffee](https://ip.net.coffee/) | Claude 出口为固定节点，支持地区“正常”，无滥用记录 |
-| IP 评分查询 | [ip.net.coffee](https://ip.net.coffee/) | 仅供参考，机房 IP 显示“代理 / Hosting”是常态 |
-| **WebRTC 泄露检测** | [ip.net.coffee](https://ip.net.coffee/) | “已禁用或未暴露，没有泄露” |
-| DNS 泄露检测 | [ip.net.coffee](https://ip.net.coffee/) | 规则模式下可能提示“中国 DNS”，原因见下方结果示例 |
-| IPv6 连通性 | [test-ipv6.com](https://test-ipv6.com) | 无 IPv6，或 IPv6 同样经由代理 |
+| **[browserleaks.com/webrtc](https://browserleaks.com/webrtc)** | **WebRTC 专项检测** | 公网 IP 仅显示代理 IP，或显示 `n/a` |
+| [browserleaks.com/ip](https://browserleaks.com/ip) | 浏览器出口 IP | 为代理 IP |
+| [ipleak.net](https://ipleak.net) | IP、DNS、WebRTC 综合检测 | 未出现本地运营商 |
+| [dnsleaktest.com](https://www.dnsleaktest.com) | DNS 泄露（选择 Extended test） | 未出现本地运营商 DNS |
+| [test-ipv6.com](https://test-ipv6.com) | IPv6 连通性 | 无 IPv6，或 IPv6 同样经由代理 |
+| [ip.net.coffee](https://ip.net.coffee/) | 综合评分（含 Claude AI IP 风险检测） | 关注具体扣分项 |
+| [ip.net.coffee](https://ip.net.coffee/) | IP 类型与风险值 | 仅供参考 |
 
 **终端出口 IP 检测：**
 
@@ -101,7 +100,7 @@ curl.exe ipinfo.io    # PowerShell（需带 .exe）
 <summary><b>Chrome / Edge</b></summary>
 
 安装 **[WebRTC Leak Prevent](https://chromewebstore.google.com/search/WebRTC%20Leak%20Prevent)**，或在 **uBlock Origin** 设置中勾选“防止 WebRTC 泄露本地 IP”。
-完成后在 [ip.net.coffee](https://ip.net.coffee/) 的 WebRTC 泄露检测中复测。
+完成后在 [browserleaks.com/webrtc](https://browserleaks.com/webrtc) 复测。
 
 </details>
 
@@ -186,7 +185,7 @@ networksetup -setv6off "Ethernet"             # 如有有线网卡，一并关�
 - [ ] 代理客户端已开启系统代理、选择规则模式，并记下混合端口（如 `7897`）
 - [ ] 校园内网等站点已加入直连规则 / 代理绕过（如有需要）
 - [ ] [ip.net.coffee](https://ip.net.coffee/) 的 Claude AI 出口为固定节点，支持地区正常
-- [ ] [ip.net.coffee](https://ip.net.coffee/) 的 WebRTC 检测显示无泄露
+- [ ] [browserleaks.com/webrtc](https://browserleaks.com/webrtc) 仅显示代理 IP
 - [ ] [test-ipv6.com](https://test-ipv6.com) 显示无 IPv6
 
 **[下一章：终端代理配置 →](02-terminal-proxy.md)**
