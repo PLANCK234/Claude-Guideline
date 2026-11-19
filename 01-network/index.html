@@ -1630,45 +1630,49 @@
 <p>系统代理通常只接管部分流量。<strong>WebRTC（UDP）、DNS 与 IPv6</strong> 是最常见的绕过路径，会使网站获取到本机真实 IP。</p>
 <hr />
 <h2 id="3-检测网站">3. 检测网站<a class="headerlink" href="#3-检测网站" title="Permanent link">&para;</a></h2>
-<p>除 IPv6 外，所有检测都可以在 <strong><a href="https://ip.net.coffee/">ip.net.coffee</a></strong> 一个站点内完成，从顶部菜单进入对应页面：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">检测项</th>
-<th style="text-align: left;">位置</th>
+<th style="text-align: left;">网站</th>
+<th style="text-align: left;">检测内容</th>
 <th style="text-align: left;">正常结果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">我的 IP 查询</td>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">分流出口中出现你固定的节点；国内站点直连属正常</td>
+<td style="text-align: left;"><strong><a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a></strong></td>
+<td style="text-align: left;"><strong>WebRTC 专项检测</strong></td>
+<td style="text-align: left;">公网 IP 仅显示代理 IP，或显示 <code>n/a</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Claude AI IP 风险检测</strong></td>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">Claude 出口为固定节点，支持地区“正常”，无滥用记录</td>
+<td style="text-align: left;"><a href="https://browserleaks.com/ip">browserleaks.com/ip</a></td>
+<td style="text-align: left;">浏览器出口 IP</td>
+<td style="text-align: left;">为代理 IP</td>
 </tr>
 <tr>
-<td style="text-align: left;">IP 评分查询</td>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">仅供参考，机房 IP 显示“代理 / Hosting”是常态</td>
+<td style="text-align: left;"><a href="https://ipleak.net">ipleak.net</a></td>
+<td style="text-align: left;">IP、DNS、WebRTC 综合检测</td>
+<td style="text-align: left;">未出现本地运营商</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>WebRTC 泄露检测</strong></td>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">“已禁用或未暴露，没有泄露”</td>
+<td style="text-align: left;"><a href="https://www.dnsleaktest.com">dnsleaktest.com</a></td>
+<td style="text-align: left;">DNS 泄露（选择 Extended test）</td>
+<td style="text-align: left;">未出现本地运营商 DNS</td>
 </tr>
 <tr>
-<td style="text-align: left;">DNS 泄露检测</td>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">规则模式下可能提示“中国 DNS”，原因见下方结果示例</td>
-</tr>
-<tr>
-<td style="text-align: left;">IPv6 连通性</td>
 <td style="text-align: left;"><a href="https://test-ipv6.com">test-ipv6.com</a></td>
+<td style="text-align: left;">IPv6 连通性</td>
 <td style="text-align: left;">无 IPv6，或 IPv6 同样经由代理</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">综合评分（含 Claude AI IP 风险检测）</td>
+<td style="text-align: left;">关注具体扣分项</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
+<td style="text-align: left;">IP 类型与风险值</td>
+<td style="text-align: left;">仅供参考</td>
 </tr>
 </tbody>
 </table>
@@ -1690,7 +1694,7 @@
 <details>
 <summary><b>Chrome / Edge</b></summary>
 <p>安装 <strong><a href="https://chromewebstore.google.com/search/WebRTC%20Leak%20Prevent">WebRTC Leak Prevent</a></strong>，或在 <strong>uBlock Origin</strong> 设置中勾选“防止 WebRTC 泄露本地 IP”。
-完成后在 <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 WebRTC 泄露检测中复测。</p>
+完成后在 <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 复测。</p>
 </details>
 <details>
 <summary><b>Safari / iPad</b></summary>
@@ -1765,7 +1769,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 代理客户端已开启系统代理、选择规则模式，并记下混合端口（如 <code>7897</code>）</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 校园内网等站点已加入直连规则 / 代理绕过（如有需要）</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 Claude AI 出口为固定节点，支持地区正常</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 WebRTC 检测显示无泄露</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 仅显示代理 IP</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://test-ipv6.com">test-ipv6.com</a> 显示无 IPv6</li>
 </ul>
 <p><strong><a href="../02-terminal-proxy/">下一章：终端代理配置 →</a></strong></p>
