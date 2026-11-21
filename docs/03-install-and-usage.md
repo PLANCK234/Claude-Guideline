@@ -106,18 +106,18 @@ claude
 2. **复制下面整段提示词**，把 `7897` 换成你的端口、把 `hkust-gz.edu.cn` 换成你学校的域名（没有可以删掉这一行），然后发给 Claude：
 
     ```text
-    请帮我完成以下网络配置。每一步修改前先备份原文件，改完告诉我改了什么。
+    请控制我的电脑，根据我目前使用的代理软件和端口帮我完成以下配置（打开tun模式，永久防止dns泄露）。
 
     1. 编辑 ~/.claude/settings.json（Windows 为 C:\Users\<用户名>\.claude\settings.json，
        不存在就新建）。保留文件中已有的配置，只合并加入：
        {
          "env": {
-           "HTTP_PROXY": "http://127.0.0.1:7897",
-           "HTTPS_PROXY": "http://127.0.0.1:7897"
+           "HTTP_PROXY": "http://127.0.0.1:<我的端口>",
+           "HTTPS_PROXY": "http://127.0.0.1:<我的端口>"
          }
        }
 
-    2. 找到 Clash Verge Rev 的全局扩展配置文件（Merge），在其中加入以下内容，
+    2. 找到代理的全局扩展配置文件，在其中加入以下内容，
        已有同名字段的话合并而不是覆盖：
        - 开启 TUN：tun.enable: true，stack: mixed，auto-route: true，
          auto-detect-interface: true，strict-route: true，dns-hijack: [any:53]
@@ -132,8 +132,6 @@ claude
          GEOSITE,cn,DIRECT
          GEOIP,CN,DIRECT
          并把 +.hkust-gz.edu.cn 加入 dns.fake-ip-filter
-
-    3. 全部改完后，不要重启代理软件，列出我接下来需要手动完成的步骤。
     ```
 
 3. **Claude 改完后，按顺序收尾：**

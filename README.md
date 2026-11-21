@@ -17,11 +17,25 @@
 
 </div>
 
+## 注册前必读：住宅 IP + 两项评分均 ≥ 99
+
+> [!WARNING]
+> **注册 Claude 前，必须使用住宅 IP，且以下两项评分必须分别达到 99 分以上（≥ 99/100）：IP 评分查询、Claude AI 信任评分。任何一项低于 99 分，都应先排查并更换符合要求的住宅出口，再注册。**
+>
+> 这是本教程为培养良好网络使用习惯设定的注册标准，并非 Claude 官方公布的门槛，也不保证注册成功或账号不会受限。日常使用时可以适当放宽评分要求，但仍应保持出口稳定，检查 WebRTC、DNS、IPv6 泄露，避免频繁切换节点。
+
+> [!IMPORTANT]
+> **Persona：上传护照后、开始人脸验证前，必须先在电脑上运行 `stop-all-claude.bat`。开通 Pro：必须先运行同一脚本，并使用浏览器无痕 / 隐私窗口开通。** 先保存工作，等待脚本执行完毕；流程完成前保持电脑上的 Claude 进程关闭。具体顺序见 [订阅与身份验证](docs/05-personal-notes.md)。这是本教程的操作要求，不代表官方条件或成功保证。
+
+![IP 评分查询：100 分，家庭住宅 IP；网络标识已脱敏](docs/assets/ip-quality.svg)
+
+![Claude AI 信任评分：100 分，家庭住宅 IP；网络标识已脱敏](docs/assets/claude-ip-check.svg)
+
 ## 前言
 
 这是一本 Claude Code 的自学指南，也是我自己从零开始配置、踩坑、到日常使用的一段记录。
 
-按照本教程设置，Claude就没有办法识别你的真实ip，就没有办法封禁你。前提是你用于注册Claude的邮箱是安全的，经过验证的（这里的经过验证是指你的邮箱有人背书，比如Google邮箱你需要通过手机号或者其他人的邮箱来帮你背书）。
+注册前请先按 [网络准备与 IP 泄露检测](docs/01-network.md) 完成检测，确认浏览器与 Claude 的出口、IP 类型及两项评分符合本教程要求。
 
 因此我把这些经验整理成了 ClaudeDIY。每一章的命令都在实际环境中验证过，尽量做到复制即可使用；涉及不同操作系统的地方，都提供了对应的跳转链接。
 
@@ -77,21 +91,6 @@
 | [`scripts/ipv6.ps1`](scripts/ipv6.ps1) | 禁用 / 恢复 IPv6 | `.\scripts\ipv6.ps1 off` / `on` |
 | [`scripts/check.ps1`](scripts/check.ps1) | 网络自检 | `.\scripts\check.ps1` |
 | [`scripts/stop-all-claude.sh`](scripts/stop-all-claude.sh) | 终止所有 Claude 进程（Linux / macOS / WSL） | `bash scripts/stop-all-claude.sh` |
-
-## ✎ 作者经验
-
-> [!IMPORTANT]
-> 以下为**个人经历**，仅供参考，不保证对所有人适用。
-
-| | |
-| :-- | :-- |
-| 💳 **订阅** | 使用**本人的新加坡 Visa 卡**在网页端直接订阅，或者美区id+支付宝礼品卡 |
-| 🪪 **Persona 验证** | 在 **iPad** 上完成（中国护照拍照 + 自拍） （和电脑同ip） |
-| 🌐 **网络** | ¥20+/月普通节点，固定一个节点用，比如日本，可支持地区选最稳定最快的 |
-|  **设备** | 系统全英文+美国时区 |
-|  **代理** | 切换代理时一定要终止Claude |
-
-👉 [更多经验与踩坑记录](docs/05-personal-notes.md)
 
 ## 讨论与贡献
 

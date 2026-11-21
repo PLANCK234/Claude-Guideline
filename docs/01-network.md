@@ -1,11 +1,20 @@
 # 01 · 网络准备与 IP 泄露检测
 
+## 注册前的硬性要求
+
+> [!WARNING]
+> **注册 Claude 前，必须使用住宅 IP，且以下两项评分必须分别达到 99 分以上（≥ 99/100）：IP 评分查询、Claude AI 信任评分。任何一项低于 99 分，都应先排查并更换符合要求的住宅出口，再注册。**
+>
+> 这是本教程为培养良好网络使用习惯设定的注册标准，并非 Claude 官方公布的门槛，也不保证注册成功或账号不会受限。日常使用时可以适当放宽评分要求，但仍应保持出口稳定，检查 WebRTC、DNS、IPv6 泄露，避免频繁切换节点。
+
 ## 1. 代理选择
 
 | 项目 | 建议 |
 | :-- | :-- |
-| 费用 | 每月 ¥20 以上的正规服务通常即可满足需求 |
-| IP 类型 | 不要求住宅 IP，普通机房节点即可 |
+| 选择标准 | 不以价格判断质量；注册前核实住宅属性、出口稳定性和两项评分 |
+| 注册时的 IP 类型 | **必须使用住宅 IP**，不能用普通机房节点替代 |
+| 注册时的评分 | **IP 评分、Claude AI 信任评分均须 ≥ 99/100**，两项分别检查 |
+| 日常使用 | 评分要求可适当放宽，以稳定、少异常验证、无泄露为原则 |
 | 节点 | 选择稳定、低延迟的节点并固定使用，避免频繁切换 |
 | 客户端模式 | 打开 **系统代理**，代理模式选 **规则（Rule）** 即可；不要用“全局” |
 
@@ -65,8 +74,8 @@ prepend-rules:                                   # 前置规则，优先于订�
 | [ipleak.net](https://ipleak.net) | IP、DNS、WebRTC 综合检测 | 未出现本地运营商 |
 | [dnsleaktest.com](https://www.dnsleaktest.com) | DNS 泄露（选择 Extended test） | 未出现本地运营商 DNS |
 | [test-ipv6.com](https://test-ipv6.com) | IPv6 连通性 | 无 IPv6，或 IPv6 同样经由代理 |
-| [ip.net.coffee](https://ip.net.coffee/) | 综合评分（含 Claude AI IP 风险检测） | 关注具体扣分项 |
-| [ip.net.coffee](https://ip.net.coffee/) | IP 类型与风险值 | 仅供参考 |
+| [ip.net.coffee](https://ip.net.coffee/) · IP 评分查询 | IP 类型与纯净度评分 | **住宅 IP，评分 ≥ 99/100**（注册前） |
+| [ip.net.coffee](https://ip.net.coffee/) · Claude AI IP 风险检测 | Claude 出口属性与信任评分 | **住宅出口，信任评分 ≥ 99/100**（注册前） |
 
 **终端出口 IP 检测：**
 
@@ -75,15 +84,17 @@ curl ipinfo.io        # Bash / WSL / macOS
 curl.exe ipinfo.io    # PowerShell（需带 .exe）
 ```
 
-### 结果示例
+### 注册前的合格结果示例（已脱敏重绘）
 
-以下是作者**正在使用、可以正常使用 Claude** 的一套配置（规则模式 + 日本固定机房节点 + 已关闭 WebRTC）的检测结果，重绘并隐去了 IP。可以看到，它并不是“满分”：评分只有 53、被识别为代理 / 机房 IP、DNS 还提示可能泄露，但这些都**不影响使用**。不必追求每一项都变绿：
+以下两张图根据提供的微信截图重绘，均为 **100 分**。已移除公网 IP、精确位置、运营商 / ASN、反向 DNS 等网络标识，不包含原始截图。图中数据仅代表截图当时的检测结果。
 
-![我的 IP 查询结果示例](assets/ip-split.svg)
+![IP 评分查询：100 分，家庭住宅 IP；网络标识已脱敏](assets/ip-quality.svg)
 
-![Claude AI IP 风险检测结果示例](assets/claude-ip-check.svg)
+![Claude AI 信任评分：100 分，家庭住宅 IP；网络标识已脱敏](assets/claude-ip-check.svg)
 
-**关于 DNS“可能泄露”：** 规则模式下，Clash 为了判断一个域名该不该走代理，会用本地 DNS 先解析它，DNS 检测站因此看到中国 DNS 服务器。这并不会改变 Claude 看到的出口 IP。WebRTC 才是会直接暴露真实 IP 的那一项，务必按第 4 节关闭。
+**两项要分别检查，不能只看其中一个高分。** 注册前确认「IP 评分查询」与「Claude AI 信任评分」均 ≥ 99 分，并确认 Claude 实际出口为住宅 IP；不要只根据节点名称或销售描述判断。
+
+**日常使用可以适当放宽评分要求**，无需为了追求满分频繁更换出口。出现 DNS、WebRTC 或 IPv6 泄露提示时，应排查实际出口和解析路径，处理后复测，不能直接忽略。
 
 ---
 
@@ -196,7 +207,7 @@ networksetup -setv6off "Ethernet"             # 如有有线网卡，一并关�
 | 同一节点时快时慢、频繁断线 | 用户太多、超售严重 |
 
 > [!TIP]
-> 检测站的评分只是参考，各家算法不同。比起追求某一个分数，**日常使用顺不顺畅**才是最实在的标准：一个节点让你频繁做验证，就换掉它。
+> **注册阶段必须遵守本教程的住宅 IP + 两项评分均 ≥ 99 分要求。** 日常使用可适当放宽评分要求；检测站算法不同，仍要结合连接稳定性、异常验证频率和泄露检测判断质量。
 
 ### 好习惯清单
 
@@ -258,7 +269,10 @@ networksetup -setv6off "Ethernet"             # 如有有线网卡，一并关�
 
 - [ ] 代理客户端已开启系统代理、选择规则模式，并记下混合端口（如 `7897`）
 - [ ] 校园内网等站点已加入直连规则 / 代理绕过（如有需要）
-- [ ] [ip.net.coffee](https://ip.net.coffee/) 的 Claude AI 出口为固定节点，支持地区正常
+- [ ] **注册前：Claude 实际出口已确认为住宅 IP**
+- [ ] **注册前：[IP 评分查询](https://ip.net.coffee/) ≥ 99/100**
+- [ ] **注册前：[Claude AI 信任评分](https://ip.net.coffee/) ≥ 99/100**
+- [ ] Claude AI 出口保持稳定，支持地区正常；日常使用可适当放宽评分要求
 - [ ] [browserleaks.com/webrtc](https://browserleaks.com/webrtc) 仅显示代理 IP
 - [ ] [test-ipv6.com](https://test-ipv6.com) 显示无 IPv6
 
