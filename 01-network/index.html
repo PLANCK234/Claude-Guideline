@@ -432,6 +432,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#注册前的硬性要求" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注册前的硬性要求
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-代理选择" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -494,10 +505,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#结果示例" class="md-nav__link">
+  <a href="#注册前的合格结果示例已脱敏重绘" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结果示例
+        注册前的合格结果示例（已脱敏重绘）
       
     </span>
   </a>
@@ -1433,6 +1444,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#注册前的硬性要求" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注册前的硬性要求
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#1-代理选择" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1495,10 +1517,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#结果示例" class="md-nav__link">
+  <a href="#注册前的合格结果示例已脱敏重绘" class="md-nav__link">
     <span class="md-ellipsis">
       
-        结果示例
+        注册前的合格结果示例（已脱敏重绘）
       
     </span>
   </a>
@@ -1647,6 +1669,12 @@
 
 
 <h1 id="01--网络准备与-ip-泄露检测">01 · 网络准备与 IP 泄露检测<a class="headerlink" href="#01--网络准备与-ip-泄露检测" title="Permanent link">&para;</a></h1>
+<h2 id="注册前的硬性要求">注册前的硬性要求<a class="headerlink" href="#注册前的硬性要求" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>注册 Claude 前，必须使用住宅 IP，且以下两项评分必须分别达到 99 分以上（≥ 99/100）：IP 评分查询、Claude AI 信任评分。任何一项低于 99 分，都应先排查并更换符合要求的住宅出口，再注册。</strong></p>
+<p>这是本教程为培养良好网络使用习惯设定的注册标准，并非 Claude 官方公布的门槛，也不保证注册成功或账号不会受限。日常使用时可以适当放宽评分要求，但仍应保持出口稳定，检查 WebRTC、DNS、IPv6 泄露，避免频繁切换节点。</p>
+</div>
 <h2 id="1-代理选择">1. 代理选择<a class="headerlink" href="#1-代理选择" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1657,12 +1685,20 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">费用</td>
-<td style="text-align: left;">每月 ¥20 以上的正规服务通常即可满足需求</td>
+<td style="text-align: left;">选择标准</td>
+<td style="text-align: left;">不以价格判断质量；注册前核实住宅属性、出口稳定性和两项评分</td>
 </tr>
 <tr>
-<td style="text-align: left;">IP 类型</td>
-<td style="text-align: left;">不要求住宅 IP，普通机房节点即可</td>
+<td style="text-align: left;">注册时的 IP 类型</td>
+<td style="text-align: left;"><strong>必须使用住宅 IP</strong>，不能用普通机房节点替代</td>
+</tr>
+<tr>
+<td style="text-align: left;">注册时的评分</td>
+<td style="text-align: left;"><strong>IP 评分、Claude AI 信任评分均须 ≥ 99/100</strong>，两项分别检查</td>
+</tr>
+<tr>
+<td style="text-align: left;">日常使用</td>
+<td style="text-align: left;">评分要求可适当放宽，以稳定、少异常验证、无泄露为原则</td>
 </tr>
 <tr>
 <td style="text-align: left;">节点</td>
@@ -1743,14 +1779,14 @@
 <td style="text-align: left;">无 IPv6，或 IPv6 同样经由代理</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">综合评分（含 Claude AI IP 风险检测）</td>
-<td style="text-align: left;">关注具体扣分项</td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a> · IP 评分查询</td>
+<td style="text-align: left;">IP 类型与纯净度评分</td>
+<td style="text-align: left;"><strong>住宅 IP，评分 ≥ 99/100</strong>（注册前）</td>
 </tr>
 <tr>
-<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a></td>
-<td style="text-align: left;">IP 类型与风险值</td>
-<td style="text-align: left;">仅供参考</td>
+<td style="text-align: left;"><a href="https://ip.net.coffee/">ip.net.coffee</a> · Claude AI IP 风险检测</td>
+<td style="text-align: left;">Claude 出口属性与信任评分</td>
+<td style="text-align: left;"><strong>住宅出口，信任评分 ≥ 99/100</strong>（注册前）</td>
 </tr>
 </tbody>
 </table>
@@ -1758,11 +1794,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>ipinfo.io<span class="w">        </span><span class="c1"># Bash / WSL / macOS</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>curl.exe<span class="w"> </span>ipinfo.io<span class="w">    </span><span class="c1"># PowerShell（需带 .exe）</span>
 </code></pre></div>
-<h3 id="结果示例">结果示例<a class="headerlink" href="#结果示例" title="Permanent link">&para;</a></h3>
-<p>以下是作者<strong>正在使用、可以正常使用 Claude</strong> 的一套配置（规则模式 + 日本固定机房节点 + 已关闭 WebRTC）的检测结果，重绘并隐去了 IP。可以看到，它并不是“满分”：评分只有 53、被识别为代理 / 机房 IP、DNS 还提示可能泄露，但这些都<strong>不影响使用</strong>。不必追求每一项都变绿：</p>
-<p><img alt="我的 IP 查询结果示例" src="../assets/ip-split.svg" /></p>
-<p><img alt="Claude AI IP 风险检测结果示例" src="../assets/claude-ip-check.svg" /></p>
-<p><strong>关于 DNS“可能泄露”：</strong> 规则模式下，Clash 为了判断一个域名该不该走代理，会用本地 DNS 先解析它，DNS 检测站因此看到中国 DNS 服务器。这并不会改变 Claude 看到的出口 IP。WebRTC 才是会直接暴露真实 IP 的那一项，务必按第 4 节关闭。</p>
+<h3 id="注册前的合格结果示例已脱敏重绘">注册前的合格结果示例（已脱敏重绘）<a class="headerlink" href="#注册前的合格结果示例已脱敏重绘" title="Permanent link">&para;</a></h3>
+<p>以下两张图根据提供的微信截图重绘，均为 <strong>100 分</strong>。已移除公网 IP、精确位置、运营商 / ASN、反向 DNS 等网络标识，不包含原始截图。图中数据仅代表截图当时的检测结果。</p>
+<p><img alt="IP 评分查询：100 分，家庭住宅 IP；网络标识已脱敏" src="../assets/ip-quality.svg" /></p>
+<p><img alt="Claude AI 信任评分：100 分，家庭住宅 IP；网络标识已脱敏" src="../assets/claude-ip-check.svg" /></p>
+<p><strong>两项要分别检查，不能只看其中一个高分。</strong> 注册前确认「IP 评分查询」与「Claude AI 信任评分」均 ≥ 99 分，并确认 Claude 实际出口为住宅 IP；不要只根据节点名称或销售描述判断。</p>
+<p><strong>日常使用可以适当放宽评分要求</strong>，无需为了追求满分频繁更换出口。出现 DNS、WebRTC 或 IPv6 泄露提示时，应排查实际出口和解析路径，处理后复测，不能直接忽略。</p>
 <hr />
 <h2 id="4-禁用-webrtc-泄露">4. 禁用 WebRTC 泄露<a class="headerlink" href="#4-禁用-webrtc-泄露" title="Permanent link">&para;</a></h2>
 <details open="open">
@@ -1874,7 +1911,7 @@
 </table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>检测站的评分只是参考，各家算法不同。比起追求某一个分数，<strong>日常使用顺不顺畅</strong>才是最实在的标准：一个节点让你频繁做验证，就换掉它。</p>
+<p><strong>注册阶段必须遵守本教程的住宅 IP + 两项评分均 ≥ 99 分要求。</strong> 日常使用可适当放宽评分要求；检测站算法不同，仍要结合连接稳定性、异常验证频率和泄露检测判断质量。</p>
 </div>
 <h3 id="好习惯清单">好习惯清单<a class="headerlink" href="#好习惯清单" title="Permanent link">&para;</a></h3>
 <div class="cd-cards">
@@ -1908,7 +1945,10 @@
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 代理客户端已开启系统代理、选择规则模式，并记下混合端口（如 <code>7897</code>）</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 校园内网等站点已加入直连规则 / 代理绕过（如有需要）</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://ip.net.coffee/">ip.net.coffee</a> 的 Claude AI 出口为固定节点，支持地区正常</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>注册前：Claude 实际出口已确认为住宅 IP</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>注册前：<a href="https://ip.net.coffee/">IP 评分查询</a> ≥ 99/100</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>注册前：<a href="https://ip.net.coffee/">Claude AI 信任评分</a> ≥ 99/100</strong></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Claude AI 出口保持稳定，支持地区正常；日常使用可适当放宽评分要求</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a> 仅显示代理 IP</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <a href="https://test-ipv6.com">test-ipv6.com</a> 显示无 IPv6</li>
 </ul>

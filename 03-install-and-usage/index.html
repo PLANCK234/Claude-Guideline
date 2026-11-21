@@ -1766,18 +1766,18 @@
 </li>
 <li>
 <p><strong>复制下面整段提示词</strong>，把 <code>7897</code> 换成你的端口、把 <code>hkust-gz.edu.cn</code> 换成你学校的域名（没有可以删掉这一行），然后发给 Claude：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>请帮我完成以下网络配置。每一步修改前先备份原文件，改完告诉我改了什么。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>请控制我的电脑，根据我目前使用的代理软件和端口帮我完成以下配置（打开tun模式，永久防止dns泄露）。
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1. 编辑 ~/.claude/settings.json（Windows 为 C:\Users\&lt;用户名&gt;\.claude\settings.json，
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   不存在就新建）。保留文件中已有的配置，只合并加入：
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   {
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     "env": {
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       "HTTP_PROXY": "http://127.0.0.1:7897",
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       "HTTPS_PROXY": "http://127.0.0.1:7897"
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       "HTTP_PROXY": "http://127.0.0.1:&lt;我的端口&gt;",
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       "HTTPS_PROXY": "http://127.0.0.1:&lt;我的端口&gt;"
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     }
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>   }
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>2. 找到 Clash Verge Rev 的全局扩展配置文件（Merge），在其中加入以下内容，
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>2. 找到代理的全局扩展配置文件，在其中加入以下内容，
 <a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   已有同名字段的话合并而不是覆盖：
 <a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>   - 开启 TUN：tun.enable: true，stack: mixed，auto-route: true，
 <a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>     auto-detect-interface: true，strict-route: true，dns-hijack: [any:53]
@@ -1792,8 +1792,6 @@
 <a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>     GEOSITE,cn,DIRECT
 <a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>     GEOIP,CN,DIRECT
 <a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>     并把 +.hkust-gz.edu.cn 加入 dns.fake-ip-filter
-<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
-<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>3. 全部改完后，不要重启代理软件，列出我接下来需要手动完成的步骤。
 </code></pre></div>
 </li>
 <li>

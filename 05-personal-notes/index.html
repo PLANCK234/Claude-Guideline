@@ -1382,18 +1382,37 @@
 <p>以下全部是<strong>作者本人的经历</strong>，不保证对你同样适用。</p>
 </div>
 <h2 id="-订阅">💳 订阅<a class="headerlink" href="#-订阅" title="Permanent link">&para;</a></h2>
-<ul>
-<li>我用的是<strong>自己名下的新加坡 Visa 卡</strong>，在 claude.ai 直接订阅。</li>
-<li>建议在<strong>网页端</strong>订阅，方便后续在设置里管理和取消。</li>
-</ul>
+<div class="admonition tip">
+<p class="admonition-title">Important</p>
+<p><strong>按本教程开通 Pro 时，必须使用浏览器的无痕 / 隐私窗口，并且必须在开通前先在电脑上运行 <code>stop-all-claude.bat</code>。</strong></p>
+</div>
+<ol>
+<li>保存电脑上正在进行的工作，运行仓库根目录的 <a href="https://github.com/PLANCK234/Claude-Guideline/blob/main/stop-all-claude.bat"><code>stop-all-claude.bat</code></a>，等待脚本执行完毕。</li>
+<li>打开浏览器的<strong>无痕 / 隐私窗口</strong>，登录需要开通 Pro 的 Claude 账号。</li>
+<li>在该窗口中完成网页端订阅；完成前保持电脑上的 Claude 应用和会话关闭，避免重新启动。</li>
+</ol>
+<p>以上为本教程的操作要求，不是 Claude 官方公布的订阅条件；无痕窗口不会隐藏公网 IP，也不能替代网络检测。</p>
 <h2 id="-persona-身份验证">🪪 Persona 身份验证<a class="headerlink" href="#-persona-身份验证" title="Permanent link">&para;</a></h2>
 <ul>
-<li>我是在 <strong>iPad（美国地区时间，系统语言为英文，能正常用tiktok）</strong> 上完成的。</li>
 <li>准备好<strong>有效的本人证件（护照）</strong>，光线充足，按页面提示一步步来。</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Important</p>
+<p><strong>上传护照后、准备开始人脸验证时，先在电脑上运行 <code>stop-all-claude.bat</code>，等待脚本执行完毕，再继续人脸验证。</strong> 不要等到人脸验证完成后才运行。</p>
+</div>
+<ul>
+<li>先保存电脑上正在进行的工作；即使是在手机或平板上验证，也要在电脑上执行该脚本。</li>
+<li>保持用于 Persona 验证的浏览器页面打开；脚本用于终止电脑上的 Claude 进程，详见 <a href="../04-stop-claude/">04 章</a>。验证完成前保持这些进程关闭。</li>
+<li>此步骤是本教程的操作提醒，不保证 Persona 验证通过，仍须按验证页面要求操作。</li>
 </ul>
 <h2 id="-网络">🌐 网络<a class="headerlink" href="#-网络" title="Permanent link">&para;</a></h2>
 <ul>
-<li>节点<strong>固定一个</strong>用。</li>
+<li>
+<p><strong>注册必须使用住宅 IP，IP 评分与 Claude AI 信任评分均须 ≥ 99 分</strong>；这是本教程的注册标准，日常使用可以适当放宽评分要求，详见 <a href="../01-network/">01 章</a>。</p>
+</li>
+<li>
+<p>节点<strong>固定一个</strong>用。</p>
+</li>
 <li>按 <a href="../01-network/">01 章</a> 把 WebRTC、DNS、IPv6 都测一遍，做好ip防泄漏。</li>
 <li>终端一定按 <a href="../02-terminal-proxy/">02 章</a> 配好代理，浏览器能用 ≠ 终端能用。</li>
 </ul>
