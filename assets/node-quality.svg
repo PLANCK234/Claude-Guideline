@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="430" viewBox="0 0 1100 430">
+  <defs>
+    <style>
+      text{font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif}
+      .m{font-family:'Cascadia Code','JetBrains Mono',Consolas,monospace}
+      .cap{opacity:0;animation:cap 6s infinite}
+      .c2{animation-delay:1.5s}.c3{animation-delay:3s}
+      @keyframes cap{0%{opacity:0;transform:translateY(6px)}6%,30%{opacity:1;transform:translateY(0)}38%,100%{opacity:0}}
+      .ok{animation:ok 6s infinite}
+      @keyframes ok{0%,20%{opacity:.4}35%,100%{opacity:1}}
+    </style>
+  </defs>
+  <rect width="1100" height="430" rx="20" fill="#1e1a17"/>
+  <text x="44" y="52" font-size="24" font-weight="700" fill="#F5EDE6">为什么总要做人机验证？多半是节点的 IP 信誉太差</text>
+  <text x="44" y="82" font-size="16" fill="#a89a8f">示意图，IP 为虚构示例</text>
+
+  <!-- 烂节点 -->
+  <rect x="44" y="106" width="490" height="290" rx="16" fill="#2b2420" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="70" y="144" font-size="21" font-weight="700" fill="#ff9b9b">✗ 烂节点</text>
+  <text class="m" x="70" y="174" font-size="15" fill="#a89a8f">203.0.113.x · 千人共用</text>
+  <g font-size="16" fill="#F5EDE6">
+    <text x="70" y="214">信誉评分</text><text x="508" y="214" text-anchor="end" fill="#ff9b9b" font-weight="700">低</text>
+    <rect x="70" y="224" width="438" height="8" rx="4" fill="#1e1a17"/><rect x="70" y="224" width="110" height="8" rx="4" fill="#ff6b6b"/>
+    <text x="70" y="262">滥用记录 / 黑名单</text><text x="508" y="262" text-anchor="end" fill="#ff9b9b">有</text>
+    <text x="70" y="294">自动化（机器）流量</text><text x="508" y="294" text-anchor="end" fill="#ff9b9b">占多数</text>
+  </g>
+  <g class="cap"><rect x="70" y="316" width="438" height="56" rx="10" fill="#3a1f1f"/><text x="90" y="350" font-size="16" fill="#ff9b9b">☐ 请证明你不是机器人 · 选出所有红绿灯</text></g>
+  <g class="cap c2"><rect x="70" y="316" width="438" height="56" rx="10" fill="#3a1f1f"/><text x="90" y="350" font-size="16" fill="#ff9b9b">⚠ 检测到异常流量，请稍后再试</text></g>
+  <g class="cap c3"><rect x="70" y="316" width="438" height="56" rx="10" fill="#3a1f1f"/><text x="90" y="350" font-size="16" fill="#ff9b9b">⟳ 正在检查您的浏览器……</text></g>
+
+  <!-- 好节点 -->
+  <rect x="566" y="106" width="490" height="290" rx="16" fill="#2b2420" stroke="#9BE39B" stroke-width="2"/>
+  <text x="592" y="144" font-size="21" font-weight="700" fill="#9BE39B">✓ 好节点</text>
+  <text class="m" x="592" y="174" font-size="15" fill="#a89a8f">198.51.100.x · 用户少、更换不频繁</text>
+  <g font-size="16" fill="#F5EDE6">
+    <text x="592" y="214">信誉评分</text><text x="1030" y="214" text-anchor="end" fill="#9BE39B" font-weight="700">高</text>
+    <rect x="592" y="224" width="438" height="8" rx="4" fill="#1e1a17"/><rect class="ok" x="592" y="224" width="410" height="8" rx="4" fill="#9BE39B"/>
+    <text x="592" y="262">滥用记录 / 黑名单</text><text x="1030" y="262" text-anchor="end" fill="#9BE39B">无</text>
+    <text x="592" y="294">自动化（机器）流量</text><text x="1030" y="294" text-anchor="end" fill="#9BE39B">很少</text>
+  </g>
+  <rect x="592" y="316" width="438" height="56" rx="10" fill="#1f3a24"/>
+  <text class="ok" x="612" y="350" font-size="16" fill="#9BE39B">✓ 搜索、视频、各类网站正常打开，很少弹验证</text>
+</svg>
