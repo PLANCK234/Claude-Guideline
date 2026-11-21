@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../assets/logo.svg">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -638,15 +638,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-基本操作" class="md-nav__link">
+  <a href="#3-登录后让-claude-帮你把网络配完" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 基本操作
+        3. 登录后：让 Claude 帮你把网络配完
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 基本操作">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-基本操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 基本操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基本操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -688,10 +699,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-任务描述建议" class="md-nav__link">
+  <a href="#5-任务描述建议" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 任务描述建议
+        5. 任务描述建议
       
     </span>
   </a>
@@ -699,10 +710,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-claudemd" class="md-nav__link">
+  <a href="#6-claudemd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. CLAUDE.md
+        6. CLAUDE.md
       
     </span>
   </a>
@@ -710,10 +721,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-进阶功能" class="md-nav__link">
+  <a href="#7-进阶功能" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. 进阶功能
+        7. 进阶功能
       
     </span>
   </a>
@@ -1505,15 +1516,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-基本操作" class="md-nav__link">
+  <a href="#3-登录后让-claude-帮你把网络配完" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. 基本操作
+        3. 登录后：让 Claude 帮你把网络配完
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. 基本操作">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-基本操作" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. 基本操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基本操作">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1555,10 +1577,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-任务描述建议" class="md-nav__link">
+  <a href="#5-任务描述建议" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 任务描述建议
+        5. 任务描述建议
       
     </span>
   </a>
@@ -1566,10 +1588,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-claudemd" class="md-nav__link">
+  <a href="#6-claudemd" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. CLAUDE.md
+        6. CLAUDE.md
       
     </span>
   </a>
@@ -1577,10 +1599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-进阶功能" class="md-nav__link">
+  <a href="#7-进阶功能" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. 进阶功能
+        7. 进阶功能
       
     </span>
   </a>
@@ -1735,7 +1757,67 @@
 </code></pre></div>
 <p>首次启动会打开浏览器进行登录。<strong>Pro / Max 订阅</strong>用户选择 Claude 账号登录；<strong>API 按量计费</strong>用户选择 Console 账号。</p>
 <hr />
-<h2 id="3-基本操作">3. 基本操作<a class="headerlink" href="#3-基本操作" title="Permanent link">&para;</a></h2>
+<h2 id="3-登录后让-claude-帮你把网络配完">3. 登录后：让 Claude 帮你把网络配完<a class="headerlink" href="#3-登录后让-claude-帮你把网络配完" title="Permanent link">&para;</a></h2>
+<p>登录成功后，你的第一个任务可以交给 Claude 自己完成：让它把 Claude Code 的代理配置写好，并把代理软件调整为 <strong>TUN 模式 + 防 DNS 泄露 + 国内与学校网站直连</strong>。这样以后无论从哪个终端、哪个应用使用 Claude，网络都是一致的。</p>
+<div class="cd-steps">
+<ol>
+<li>
+<p><strong>确认你的代理端口</strong>：在 Clash Verge Rev 的“设置”页找到 <strong>混合代理端口</strong>（默认 <code>7897</code>），方法见 <a href="../01-network/#1-代理选择">01 章</a>。</p>
+</li>
+<li>
+<p><strong>复制下面整段提示词</strong>，把 <code>7897</code> 换成你的端口、把 <code>hkust-gz.edu.cn</code> 换成你学校的域名（没有可以删掉这一行），然后发给 Claude：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>请帮我完成以下网络配置。每一步修改前先备份原文件，改完告诉我改了什么。
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1. 编辑 ~/.claude/settings.json（Windows 为 C:\Users\&lt;用户名&gt;\.claude\settings.json，
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   不存在就新建）。保留文件中已有的配置，只合并加入：
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   {
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>     "env": {
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>       "HTTP_PROXY": "http://127.0.0.1:7897",
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>       "HTTPS_PROXY": "http://127.0.0.1:7897"
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>     }
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>   }
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>2. 找到 Clash Verge Rev 的全局扩展配置文件（Merge），在其中加入以下内容，
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>   已有同名字段的话合并而不是覆盖：
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>   - 开启 TUN：tun.enable: true，stack: mixed，auto-route: true，
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>     auto-detect-interface: true，strict-route: true，dns-hijack: [any:53]
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>   - 防 DNS 泄露：dns.enable: true，enhanced-mode: fake-ip，ipv6: false，
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>     respect-rules: true；nameserver 使用 https://1.1.1.1/dns-query 和
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>     https://8.8.8.8/dns-query；proxy-server-nameserver 与 default-nameserver
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>     使用 223.5.5.5；nameserver-policy 中让 geosite:cn 使用
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>     https://223.5.5.5/dns-query
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>   - 直连规则：用 prepend-rules 在最前面加入
+<a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a>     DOMAIN-SUFFIX,hkust-gz.edu.cn,DIRECT
+<a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>     DOMAIN-SUFFIX,edu.cn,DIRECT
+<a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a>     GEOSITE,cn,DIRECT
+<a id="__codelineno-4-25" name="__codelineno-4-25" href="#__codelineno-4-25"></a>     GEOIP,CN,DIRECT
+<a id="__codelineno-4-26" name="__codelineno-4-26" href="#__codelineno-4-26"></a>     并把 +.hkust-gz.edu.cn 加入 dns.fake-ip-filter
+<a id="__codelineno-4-27" name="__codelineno-4-27" href="#__codelineno-4-27"></a>
+<a id="__codelineno-4-28" name="__codelineno-4-28" href="#__codelineno-4-28"></a>3. 全部改完后，不要重启代理软件，列出我接下来需要手动完成的步骤。
+</code></pre></div>
+</li>
+<li>
+<p><strong>Claude 改完后，按顺序收尾：</strong></p>
+<ol>
+<li>运行 <a href="../04-stop-claude/"><code>stop-all-claude.bat</code></a> 终止所有 Claude 进程（修改代理前必做，原因见 <a href="../04-stop-claude/#为什么要先终止所有进程">04 章</a>）；</li>
+<li>在 Clash Verge Rev 中：<strong>设置 → 虚拟网卡模式（TUN）</strong> 打开。首次开启需要先点旁边的按钮安装 <strong>服务模式</strong>；</li>
+<li>在 <strong>订阅</strong> 页面重新应用当前配置，或重启 Clash Verge Rev；</li>
+<li>按 <a href="../01-network/#3-检测网站">01 章 · 检测网站</a> 检查：出口 IP 是你固定的节点、DNS 检测没有出现本地运营商、学校网站可以正常打开；</li>
+<li>重新打开 Claude，能正常对话即完成。</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这一步需要 Claude 修改你电脑上的配置文件，它会逐项请求你确认，看清楚再批准。如果你用的不是 Clash Verge Rev（例如 v2rayN），把提示词第 2 步里的软件名换成你用的软件，Claude 会按对应的格式修改。</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>想让更多学校网站或内网直连，以后随时可以对 Claude 说：“把 xxx.edu.cn 加入 Clash 的直连规则”。</p>
+</div>
+<hr />
+<h2 id="4-基本操作">4. 基本操作<a class="headerlink" href="#4-基本操作" title="Permanent link">&para;</a></h2>
 <p><img alt="Claude Code 交互示意" src="../assets/terminal-demo.svg" /></p>
 <h3 id="快捷键">快捷键<a class="headerlink" href="#快捷键" title="Permanent link">&para;</a></h3>
 <table>
@@ -1816,33 +1898,33 @@
 </tbody>
 </table>
 <h3 id="命令行参数">命令行参数<a class="headerlink" href="#命令行参数" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>claude<span class="w"> </span><span class="s2">"解释这个项目"</span><span class="w">          </span><span class="c1"># 携带初始问题启动</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>claude<span class="w"> </span>-c<span class="w">                      </span><span class="c1"># 继续最近一次会话</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>claude<span class="w"> </span>-r<span class="w">                      </span><span class="c1"># 选择历史会话恢复</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">"总结 README"</span><span class="w">        </span><span class="c1"># 非交互模式，输出结果后退出</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>claude<span class="w"> </span><span class="s2">"解释这个项目"</span><span class="w">          </span><span class="c1"># 携带初始问题启动</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>claude<span class="w"> </span>-c<span class="w">                      </span><span class="c1"># 继续最近一次会话</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>claude<span class="w"> </span>-r<span class="w">                      </span><span class="c1"># 选择历史会话恢复</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>claude<span class="w"> </span>-p<span class="w"> </span><span class="s2">"总结 README"</span><span class="w">        </span><span class="c1"># 非交互模式，输出结果后退出</span>
 </code></pre></div>
 <hr />
-<h2 id="4-任务描述建议">4. 任务描述建议<a class="headerlink" href="#4-任务描述建议" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>1. 先理解，不修改：  阅读这个项目，说明入口、结构和测试命令，暂不修改文件。
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>2. 明确验收标准：    为登录接口补充单元测试，覆盖密码错误和 token 过期，完成后运行 npm test。
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>3. 要求自查：        审查刚才的改动，列出尚未覆盖的边界情况。
+<h2 id="5-任务描述建议">5. 任务描述建议<a class="headerlink" href="#5-任务描述建议" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>1. 先理解，不修改：  阅读这个项目，说明入口、结构和测试命令，暂不修改文件。
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>2. 明确验收标准：    为登录接口补充单元测试，覆盖密码错误和 token 过期，完成后运行 npm test。
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>3. 要求自查：        审查刚才的改动，列出尚未覆盖的边界情况。
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>对于较大的改动，建议先按 <code>Shift+Tab</code> 进入 <strong>Plan 模式</strong>，确认方案后再执行。</p>
 </div>
 <hr />
-<h2 id="5-claudemd">5. CLAUDE.md<a class="headerlink" href="#5-claudemd" title="Permanent link">&para;</a></h2>
+<h2 id="6-claudemd">6. CLAUDE.md<a class="headerlink" href="#6-claudemd" title="Permanent link">&para;</a></h2>
 <p>放置在项目根目录，每次启动时自动读取，用于记录项目约定：</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="gh"># 项目约定</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">-</span><span class="w"> </span>包管理使用 pnpm，测试命令为 pnpm test
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">-</span><span class="w"> </span>使用中文回复
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">-</span><span class="w"> </span>修改代码后必须运行测试
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">-</span><span class="w"> </span>不得修改 legacy/ 目录
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="gh"># 项目约定</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">-</span><span class="w"> </span>包管理使用 pnpm，测试命令为 pnpm test
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="k">-</span><span class="w"> </span>使用中文回复
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">-</span><span class="w"> </span>修改代码后必须运行测试
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">-</span><span class="w"> </span>不得修改 legacy/ 目录
 </code></pre></div>
 <p>全局偏好可写入 <code>~/.claude/CLAUDE.md</code>，对所有项目生效。</p>
 <hr />
-<h2 id="6-进阶功能">6. 进阶功能<a class="headerlink" href="#6-进阶功能" title="Permanent link">&para;</a></h2>
+<h2 id="7-进阶功能">7. 进阶功能<a class="headerlink" href="#7-进阶功能" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
