@@ -36,6 +36,7 @@
 | 设置了环境变量不生效 | 没有**完全关掉** VS Code / Windows Terminal 再重开 |
 | WSL 里连不上 | 可能你的 Windows 不支持镜像网络，要改用 Windows IP 的方法 |
 | 关代理换节点被封 | 在这之前 [一键终止](04-stop-claude.md)，启用前换回来 |
+| 谷歌邮箱注册被秒封 | 用谷歌邮箱注册前一定要确认该邮箱有辅助验证邮箱和手机号 |
 
 <div align="center">
 

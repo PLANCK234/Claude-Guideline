@@ -34,7 +34,7 @@
 | [前言](docs/index.md) · [使用指南](docs/guide.md) | 本书的由来、阅读顺序与配套脚本 |
 | [01 · 网络准备与 IP 泄露检测](docs/01-network.md) | 代理选择；WebRTC / DNS / IPv6 泄露检测；各系统禁用 IPv6 |
 | [02 · 终端永久代理配置](docs/02-terminal-proxy.md) | PowerShell、CMD、WSL、Bash / Zsh 永久代理；Claude Code 专用配置 |
-| [03 · 安装与使用](docs/03-install-and-usage.md) | 安装（优先官方桌面应用）、登录、快捷键、斜杠命令、`CLAUDE.md` |
+| [03 · 安装与使用](docs/03-install-and-usage.md) | 安装（优先官方桌面应用）、登录、让 Claude 帮你配好代理与 TUN、快捷键、斜杠命令、`CLAUDE.md` |
 | [04 · 终止所有 Claude 进程](docs/04-stop-claude.md) | 调整代理前为什么必须先终止所有进程，以及一键终止脚本 |
 | [06 · 实战：用 Claude + Remotion 做动画](docs/06-remotion-animation.md) | 提示词编译器（prompt of prompts）+ Remotion，从一句话到 MP4 |
 | [进阶篇 · 功能详解](docs/howto/index.md) | 学习路线图、概念总览、功能总表、速查卡，以及 Slash Commands、Memory、Skills、Hooks、MCP、Plugins 等 10 个模块；每个模块配有动画演示与实例，附 `/self-assessment`、`/lesson-quiz` 互动自测。以开源项目 claude-howto 为基础重新编写，来源与许可见该页 |

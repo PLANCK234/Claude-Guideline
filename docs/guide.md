@@ -12,7 +12,7 @@
 | :-- | :-- | :--: |
 | [01 · 网络准备与 IP 泄露检测](01-network.md) | 代理选择、WebRTC / DNS / IPv6 泄露检测、禁用 IPv6 | 10 分钟 |
 | [02 · 终端永久代理配置](02-terminal-proxy.md) | PowerShell、CMD、WSL、Bash / Zsh 的永久代理 | 5 分钟 |
-| [03 · 安装与使用](03-install-and-usage.md) | 安装（优先官方桌面应用）、登录、快捷键、斜杠命令、`CLAUDE.md` | 15 分钟 |
+| [03 · 安装与使用](03-install-and-usage.md) | 安装（优先官方桌面应用）、登录、让 Claude 帮你配好代理与 TUN、快捷键、斜杠命令、`CLAUDE.md` | 20 分钟 |
 | [04 · 终止所有 Claude 进程](04-stop-claude.md) | 调整代理前为什么必须先终止所有进程，以及一键终止脚本 | 3 分钟 |
 | [06 · 实战：用 Claude + Remotion 做动画](06-remotion-animation.md) | 提示词编译器 + Remotion，从一句话到 MP4 | 30 分钟 |
 | [05 · 个人经验](05-personal-notes.md) | 订阅、身份验证与踩坑记录 | 3 分钟 |

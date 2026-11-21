@@ -95,7 +95,66 @@ claude
 
 ---
 
-## 3. 基本操作
+## 3. 登录后：让 Claude 帮你把网络配完
+
+登录成功后，你的第一个任务可以交给 Claude 自己完成：让它把 Claude Code 的代理配置写好，并把代理软件调整为 **TUN 模式 + 防 DNS 泄露 + 国内与学校网站直连**。这样以后无论从哪个终端、哪个应用使用 Claude，网络都是一致的。
+
+<div class="cd-steps" markdown>
+
+1. **确认你的代理端口**：在 Clash Verge Rev 的“设置”页找到 **混合代理端口**（默认 `7897`），方法见 [01 章](01-network.md#1-代理选择)。
+
+2. **复制下面整段提示词**，把 `7897` 换成你的端口、把 `hkust-gz.edu.cn` 换成你学校的域名（没有可以删掉这一行），然后发给 Claude：
+
+    ```text
+    请帮我完成以下网络配置。每一步修改前先备份原文件，改完告诉我改了什么。
+
+    1. 编辑 ~/.claude/settings.json（Windows 为 C:\Users\<用户名>\.claude\settings.json，
+       不存在就新建）。保留文件中已有的配置，只合并加入：
+       {
+         "env": {
+           "HTTP_PROXY": "http://127.0.0.1:7897",
+           "HTTPS_PROXY": "http://127.0.0.1:7897"
+         }
+       }
+
+    2. 找到 Clash Verge Rev 的全局扩展配置文件（Merge），在其中加入以下内容，
+       已有同名字段的话合并而不是覆盖：
+       - 开启 TUN：tun.enable: true，stack: mixed，auto-route: true，
+         auto-detect-interface: true，strict-route: true，dns-hijack: [any:53]
+       - 防 DNS 泄露：dns.enable: true，enhanced-mode: fake-ip，ipv6: false，
+         respect-rules: true；nameserver 使用 https://1.1.1.1/dns-query 和
+         https://8.8.8.8/dns-query；proxy-server-nameserver 与 default-nameserver
+         使用 223.5.5.5；nameserver-policy 中让 geosite:cn 使用
+         https://223.5.5.5/dns-query
+       - 直连规则：用 prepend-rules 在最前面加入
+         DOMAIN-SUFFIX,hkust-gz.edu.cn,DIRECT
+         DOMAIN-SUFFIX,edu.cn,DIRECT
+         GEOSITE,cn,DIRECT
+         GEOIP,CN,DIRECT
+         并把 +.hkust-gz.edu.cn 加入 dns.fake-ip-filter
+
+    3. 全部改完后，不要重启代理软件，列出我接下来需要手动完成的步骤。
+    ```
+
+3. **Claude 改完后，按顺序收尾：**
+
+    1. 运行 [`stop-all-claude.bat`](04-stop-claude.md) 终止所有 Claude 进程（修改代理前必做，原因见 [04 章](04-stop-claude.md#为什么要先终止所有进程)）；
+    2. 在 Clash Verge Rev 中：**设置 → 虚拟网卡模式（TUN）** 打开。首次开启需要先点旁边的按钮安装 **服务模式**；
+    3. 在 **订阅** 页面重新应用当前配置，或重启 Clash Verge Rev；
+    4. 按 [01 章 · 检测网站](01-network.md#3-检测网站) 检查：出口 IP 是你固定的节点、DNS 检测没有出现本地运营商、学校网站可以正常打开；
+    5. 重新打开 Claude，能正常对话即完成。
+
+</div>
+
+> [!NOTE]
+> 这一步需要 Claude 修改你电脑上的配置文件，它会逐项请求你确认，看清楚再批准。如果你用的不是 Clash Verge Rev（例如 v2rayN），把提示词第 2 步里的软件名换成你用的软件，Claude 会按对应的格式修改。
+
+> [!TIP]
+> 想让更多学校网站或内网直连，以后随时可以对 Claude 说：“把 xxx.edu.cn 加入 Clash 的直连规则”。
+
+---
+
+## 4. 基本操作
 
 ![Claude Code 交互示意](assets/terminal-demo.svg)
 
@@ -134,7 +193,7 @@ claude -p "总结 README"        # 非交互模式，输出结果后退出
 
 ---
 
-## 4. 任务描述建议
+## 5. 任务描述建议
 
 ```text
 1. 先理解，不修改：  阅读这个项目，说明入口、结构和测试命令，暂不修改文件。
@@ -147,7 +206,7 @@ claude -p "总结 README"        # 非交互模式，输出结果后退出
 
 ---
 
-## 5. CLAUDE.md
+## 6. CLAUDE.md
 
 放置在项目根目录，每次启动时自动读取，用于记录项目约定：
 
@@ -163,7 +222,7 @@ claude -p "总结 README"        # 非交互模式，输出结果后退出
 
 ---
 
-## 6. 进阶功能
+## 7. 进阶功能
 
 | 功能 | 说明 | 文档 |
 | :-- | :-- | :-- |
